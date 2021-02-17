@@ -2,7 +2,7 @@
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: 김성민                          # the main title
+title: Study                          # the main title
 
 tagline: Test   # it will display as the sub-title
 
@@ -12,7 +12,7 @@ description: >-                        # used by seo meta and the atom feed
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://ksm0207.github.io'
 
-author: Ksm                  # change to your full name
+author: Sungmin                  # change to your full name
 
 github:
   username: ksm0207             # change to your github username
@@ -21,7 +21,7 @@ twitter:
   username:            # change to your twitter username
 
 social:
-  name: 김성민                  # it will shows as the copyright owner in Footer
+  name: Kimsungmin                  # it will shows as the copyright owner in Footer
   email: ksm03071@naver.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
@@ -55,7 +55,7 @@ google_analytics:
 
 disqus:
   comments: true # boolean type, the global switch for posts comments.
-  shortname: yeonseonam    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+  shortname: sungminkim    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 
 # Prefer color scheme setting.
@@ -80,7 +80,7 @@ theme_mode:   # [light|dark]
 img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://lh3.googleusercontent.com/proxy/48oO-Cu-C-uDuoS6N9_zPXoUNSV9A2ttgZhHLxRgXqu17HQo4ecsERlx9RSx4oQBL5w3ircpcJFGbKWXWbdqaPKSFdUZJhmh
+avatar: https://image.freepik.com/free-vector/cute-samoyed-dog-icon_42750-298.jpg
 
 # boolean type, the global switch for ToC in posts.
 toc: true

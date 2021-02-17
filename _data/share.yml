@@ -3,17 +3,14 @@
 
 platforms:
   -
-    type: Twitter
-    icon: "fab fa-twitter"
-    link: "https://twitter.com/intent/tweet?text=TITLE&url=URL"
+    type: GitHub
+    icon: 'fab fa-github-alt'
+    link: "https://github.com/ksm0207"
+
   -
-    type: Facebook
-    icon: "fab fa-facebook-square"
-    link: "https://www.facebook.com/sharer/sharer.php?title=TITLE&u=URL"
-  -
-    type: Telegram
-    icon: "fab fa-telegram"
-    link: "https://telegram.me/share?text=TITLE&url=URL"
+    type: ksm03071@gmail.com 
+    icon: "fab fa-google"
+    link: "https://ksm0207.github.io/tabs/about/"
 
   # Uncomment below if you need to.
   # -
