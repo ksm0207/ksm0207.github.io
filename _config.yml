@@ -2,9 +2,9 @@
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: 우당탕탕 개발자                          # the main title
+title: 김성민                          # the main title
 
-tagline: 1%는 작지만 (1.01)^365 복리는 무시못하지   # it will display as the sub-title
+tagline: Test   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   읽거나, 보거나, 듣거나, 쓰거나
@@ -12,7 +12,7 @@ description: >-                        # used by seo meta and the atom feed
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://ksm0207.github.io'
 
-author: yan_bug                  # change to your full name
+author: Ksm                  # change to your full name
 
 github:
   username: ksm0207             # change to your github username
@@ -21,12 +21,12 @@ twitter:
   username:            # change to your twitter username
 
 social:
-  name: 남연서                  # it will shows as the copyright owner in Footer
-  email: yeonseo9105@gmail.com             # change to your email address
+  name: 김성민                  # it will shows as the copyright owner in Footer
+  email: ksm03071@naver.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/undefined      # change to your twitter homepage
-    - https://github.com/yeonseo       # change to your github homepage
+    - https://github.com/ksm0207       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
@@ -80,7 +80,7 @@ theme_mode:   # [light|dark]
 img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://avatars.githubusercontent.com/u/6857157?s=460&u=90043bba43f4aca8cb7f722602c80b0c92acec50&v=4
+avatar: https://lh3.googleusercontent.com/proxy/48oO-Cu-C-uDuoS6N9_zPXoUNSV9A2ttgZhHLxRgXqu17HQo4ecsERlx9RSx4oQBL5w3ircpcJFGbKWXWbdqaPKSFdUZJhmh
 
 # boolean type, the global switch for ToC in posts.
 toc: true
