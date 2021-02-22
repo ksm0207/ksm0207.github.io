@@ -8,10 +8,9 @@ comments : true
 ---
 
 게시판 만들기 포스팅은 위키독스 점프 투 장고 학습내용의 바탕으로 진행합니다<br>
+(준비물 :  Visual Studio Code 혹은 Pycham 개발 편집기)
 
 시작하기에 앞서 Django를 짧게 소개해보는 포스팅 입니다.
-
-사전으로 준비해야할 것은 Visual Studio Code 혹은 Pycham 개발 편집기를 준비하는것 입니다
 
 # Django 
 
