@@ -16,14 +16,14 @@ comments : true
 <br>
 명령 프롬포트에서 django-admin 의 startapp 명령을 이용하여 앱을 생성할 수 있습니다.
 
-``` C:\Users\user\Documents\GitHub\project_name> app_name ```<br>
+``` PS C:\first_projects\board_app> django-admin startapp app_name ```<br>
 생성된 앱은 현재 프로젝트 디렉토리 목록을 살펴보면 앱이 추가된것을 확인할 수 있습니다
 
 # 개발 서버 구동하기
 <br>
 앱 생성까지 완료하였으니 개발 서버 구동을 해볼까요 ? 이제부터 프로그래밍은 시작되는겁니다!
 
-``` C:\Users\user\Documents\GitHub\django_pybo> python runserver ```
+``` PS C:\first_projects\board_app> python manage.py runserver  ```
 
 그 다음 웹 브라우저에 ```localhost:8000/app_name/ ``` 으로 요청한다고 입력해줍니다<br>
 ※ 필자의 경우에는 ```localhost:8000/pybo/ 으로 요청하였습니다 ``` 
@@ -39,7 +39,7 @@ comments : true
 Django는 사용자가 웹 브라우저에서 ```/localhost:8000/pybo/``` 라는 페이지를 요청하면<br>
 해당되는 페이지를 가져오는 URL mapping 이 있는지 config/urls.py 파일에서 찾아옵니다
 
-하지만 아직 config/urls.py 에는 ```/pybo/ ``` 페이지에 아무런 정보가 없기 때문에 Django는 찾을수 없다고 나오네요<br>
+하지만 아직 config/urls.py 에는 ```/pybo/ ``` 라고 요청했을때 이것에 대한 아무런 정보가 없기 때문에 Django는 찾을수 없다고 나오네요<br>
 
 * ※ config/urls.py 파일은 페이지 요청 시 가장 먼저 호출 되는 파일입니다 주로 요청한 URL 과 이에 맞는 View function 을 연결합니다
   View function 은 우리가 보는 화면을 보여 주기 위한 function 이며 앱 디렉토리에 보이는 views.py가 바로 그 역활을 하는것 입니다
@@ -71,7 +71,7 @@ Result = Page not found(404) ....
 
 from django.contrib import admin
 from django.urls import path
-from app_name import views ★ 추가
+from pybo import views ★ 추가
 
 
 urlpatterns = [
