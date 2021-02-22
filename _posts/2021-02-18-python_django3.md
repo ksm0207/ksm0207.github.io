@@ -16,28 +16,29 @@ comments : true
 진행하기전 프로젝트 루트 디렉토리를 만들어줍시다
 
 ```
-C:\Users\user>cd\
+C:\Users\user>cd \
 
-C:\>mkdir Documents
+C:\>mkdir my_projects
 
-C:\>cd Documents
+C:\>cd my_projects
 
-C:\Documents>mkdir Github
+C:\my_projects> 
 
-C:\Documents>cd github
+▲ 프로젝트 루트 디렉터리 생성하는법
 
-C:\Documents\Github>C:\name\환경이름\Scripts>activate
+▼ 프로젝트 루트 디렉터리 안에서 가상 환경에 진입하는법
+
+C:\my_projects>C:\myDjango\myfirst_web\Scripts\activate
 
 최종 결과물
-(환경이름) C:\Documents\Github>
-
+(myfirst_web) C:\my_projects>
 ```
 
 이번엔 프로젝트를 담을 디렉토리 생성하고 이동합니다
 ```
-(환경이름) C:\Documents\Github> mkdir project_name
-(환경이름) C:\Documents\Github> cd project_name
-(환경이름) C:\Documents\Github\project_name>
+(myfirst_web) C:\my_projects> mkdir  myfirst_board (프로젝트를 담아줄 디렉토리 name)
+(myfirst_web) C:\my_projects>cd myfirst_board 
+myfirst_web) C:\my_projects\myfirst_board>
 ```
 
 CMD 를 활용하여 명령을 다음과 같이 진행합니다

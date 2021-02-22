@@ -80,6 +80,13 @@ C:\myDjango\myfirst_web\Scripts> activate 명령 실행 (2)
 (myfirst_web) C:\myDjango\myfirst_web\Scripts>
 
 ※ 가상환경에 벗어나려면 deactivate 명령을 실행합니다 벗어나면 (myfirst_web) 프롬프트가 사라져 있을것 입니다
+
+현재 가상환경에 진입했는지 확인하려면 activate 명령을 실행합니다
+
+(myfirst_web) C:\myDjango\myfirst_web\Scripts>activate 실행 후 ...
+
+(myfirst_web) C:\myDjango\myfirst_web\Scripts> 이 문구가 나오면 현재 가상환경 이라는 의미가 됩니다
+
 ```
 
 # Django 설치하기
@@ -88,7 +95,24 @@ C:\myDjango\myfirst_web\Scripts> activate 명령 실행 (2)
 
 설치는 아래와 같은 명령어로 진행해줍니다 ( CMD으로 진행 )
 ```
-C:\myDjango\myfirst_web\Scripts> pip install django==3.1.3
+(myfirst_web) C:\myDjango\myfirst_web\Scripts> pip install django==3.1.3
+
+Collecting django==3.1.3
+  Downloading https://files.pythonhosted.org/packages/7f/17/16267e782a30ea2ce08a9a452c1db285afb0ff226cfe3753f484d3d65662/Django-3.1.3-py3-none-any.whl (7.8MB)
+     |████████████████████████████████| 7.8MB 1.7MB/s
+Collecting pytz (from django==3.1.3)
+  Downloading https://files.pythonhosted.org/packages/70/94/784178ca5dd892a98f113cdd923372024dc04b8d40abe77ca76b5fb90ca6/pytz-2021.1-py2.py3-none-any.whl (510kB)
+     |████████████████████████████████| 512kB ...
+Collecting asgiref<4,>=3.2.10 (from django==3.1.3)
+  Downloading https://files.pythonhosted.org/packages/89/49/5531992efc62f9c6d08a7199dc31176c8c60f7b2548c6ef245f96f29d0d9/asgiref-3.3.1-py3-none-any.whl
+Collecting sqlparse>=0.2.2 (from django==3.1.3)
+  Downloading https://files.pythonhosted.org/packages/14/05/6e8eb62ca685b10e34051a80d7ea94b7137369d8c0be5c3b9d9b6e3f5dae/sqlparse-0.4.1-py3-none-any.whl (42kB)
+     |████████████████████████████████| 51kB 3.4MB/s
+Installing collected packages: pytz, asgiref, sqlparse, django
+Successfully installed asgiref-3.3.1 django-3.1.3 pytz-2021.1 sqlparse-0.4.1
+WARNING: You are using pip version 19.2.3, however version 21.0.1 is available.
+You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+
 ```
 pip은 Python 라이브러리를 설치하고 관리해 주는 Python 도구입니다<br> 
 명령프롬포트에 만약 pip 버전이 최신버전이 아니라는 메세지를 나타난다면 
