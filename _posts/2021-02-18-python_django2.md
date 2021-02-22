@@ -25,7 +25,7 @@ Django는 Python 으로 만들어진 웹 프레임워크 이기 때문에 Python
  Python 3.8.3 (어쩌구 저쩌구.. 설치된 날짜  .. 등등)
 ```
 
-만약에 찾을 수 없는 명령 이라고 나온다면 내려받은 설치 파일을 다시 실행하여 재설치를 권장합니다..
+만약에 찾을 수 없는 명령 이라고 나온다면 내려받은 설치 파일을 다시 실행하여 재설치를 권장합니다
 
 
 # Python 가상 환경 만들기
@@ -46,16 +46,20 @@ Python 가상 환경은 프로젝트를 진행할 때 독립된 환경을 만들
 ```
 C:\Users\user>cd \
 
-C:\>mkdir name
+C:\>mkdir myDjango
 
-C:\>cd name
-루트 디렉토리는 반드시 name 이라고 지을 필요가 없습니다.
+C:\>cd myDjango
+
+C:\myDjango>
+
+루트 디렉토리는 반드시 myDjango 이라고 지을 필요는 없습니다.
 ```
 
 이제 디렉토리를 만들었으니 가상 환경을 만들어 봅시다
 
 ```
-C:\name python -m venv 가상 환경 이름
+C:\myDjango>python -m venv myfirst_web 가상 환경 이름
+해석 : C:\ 가상환경_디렉토리> python -m venv 가상환경 이름 짓기 
 
 python -m venv 이것은 Python 모듈 중 venv 라는 모듈을 사용한다는 의미입니다
 
@@ -64,15 +68,18 @@ python -m venv 이것은 Python 모듈 중 venv 라는 모듈을 사용한다는
 가상환경에 진입해볼까요?
 
 ```
-C:\name\ cd 환경이름
-C:\name\환경이름\ cd Scripts
-C:\name\환경이름\Scripts> activate 명령 실행하면 환경에 진입하게 됩니다
+C:\myDjango> cd C:\myDjango\myfirst_web\Scripts 명령 실행 (1)
+'
+'
+'
+C:\myDjango\myfirst_web\Scripts> activate 명령 실행 (2)
+※ 가상환경에 진입하려면 생성한 myfirst_web 가상 환경에 있는 Scripts 디렉토리의 activate 명령을 수행합니다
 
-환경에 진입하게 되면 아래와 같은 프롬포트를 확인할 수 있습니다
-(환경이름) C:\name\환경이름\Scripts>
+(1) (2) 절차를 진행하게 되면 아래 와 같은 결과를 확인할 수 있습니다 
 
-가상 환경에 벗어나려면
-(환경이름) C:\name\환경이름\Scripts> deactivate 명령을 해주면 됩니다.
+(myfirst_web) C:\myDjango\myfirst_web\Scripts>
+
+※ 가상환경에 벗어나려면 deactivate 명령을 실행합니다 벗어나면 (myfirst_web) 프롬프트가 사라져 있을것 입니다
 ```
 
 # Django 설치하기
@@ -81,7 +88,7 @@ C:\name\환경이름\Scripts> activate 명령 실행하면 환경에 진입하�
 
 설치는 아래와 같은 명령어로 진행해줍니다 ( CMD으로 진행 )
 ```
-C:\name\환경이름\Scripts> pip install django==3.1.3
+C:\myDjango\myfirst_web\Scripts> pip install django==3.1.3
 ```
 pip은 Python 라이브러리를 설치하고 관리해 주는 Python 도구입니다<br> 
 명령프롬포트에 만약 pip 버전이 최신버전이 아니라는 메세지를 나타난다면 
@@ -91,7 +98,7 @@ pip은 Python 라이브러리를 설치하고 관리해 주는 Python 도구입�
 ``` python -m pip install -- upgrade pip ```
 
 여기까지 진행하였다면 개발환경은 모두 맞추게 된것입니다<br>
-다음 포스팅에는 Django 프로젝트 생성과 개발도구는 무엇으로 할것인지 알아보도록 하겠습니다.
+다음 포스팅에는 Django 프로젝트 생성하는법을 알아보도록 하겠습니다 감사합니다.
 
 
 

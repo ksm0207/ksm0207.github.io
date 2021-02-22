@@ -1,5 +1,5 @@
 ---
-title: Django로 게시판 만들기 - 00 ( Django가 뭐야? )
+title: Django로 게시판 만들기 - 00 ( Hello Django !! )
 author: Kim
 date: 2021-02-18 08:09 +0900   # 2019-08-20 19:34:00 0900
 categories : ["Python", "Django"]
