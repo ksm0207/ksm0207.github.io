@@ -85,7 +85,7 @@ urlpatterns = [
 include 함수를 사용하여서 pybo/로 시작되는 페이지 요청은 모두 pybo/urls.py 파일에 있는 URL 매핑을 참고하고 처리하게 만들었습니다<br>
 pybo App에 관련된 URL 요청은 앞으로 pybo/urls.py 파일에서 관리하도록 구성하였고 pybo/ 요청은 config/urls.py 이 아닌 pybo/urls.py 에서 처리됩니다
 
-# App 폴더에 urls.py 파일 생성하기
+# Step 3 App 폴더에 urls.py 파일 생성하기
 
 config/urls.py 파일에서 pybo/ 페이지 요청은 우리가 만든 앱 폴더에서 처리할수 있어야 하기 때문에<br>
 App 디렉토리에서 urls.py 파일을 생성해줍니다
