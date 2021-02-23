@@ -1,5 +1,5 @@
 ---
-title: Spring 입문서 [기본편]
+title: Spring 입문서 [기본편 01]
 author: Kim
 date: 2021-02-22 16:40 +0900   # 2019-08-20 19:34:00 0900
 categories : ["Spring", ""]
@@ -175,7 +175,7 @@ There was an unexpected error (type=Not Found, status=404). // 아직 아무것�
 ```
 여기까지 오류없이 잘 진행됐다면 프로젝트 구성은 성공한것입니다<br>
 
-그런데 왜 ```localhost:8080 ``` 에 접속할수가 있었을까요? 알아보니 ```@SpringBootApplication```이 TomcatWebServer를 내장하고 있기 때문에 가능했던 일 이였습니다
+그런데 왜 ```localhost:8080 ``` 에 접속할수가 있었을까요? 알아보니 ```@SpringBootApplication```이 TomcatWebServer를 내장하고 있기 때문에 가능했던 일 이었습니다
 
 다음 포스팅 에는 라이브러리를 살펴보도록 하겠습니다 감사합니다.
 
