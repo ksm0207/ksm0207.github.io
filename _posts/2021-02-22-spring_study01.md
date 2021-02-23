@@ -7,7 +7,7 @@ tags: [Spring,null]
 comments : true
 ---
 
-# Spring 입문 첫번째 [프로젝트 환경설정]
+# [프로젝트 환경설정]
 
 ## 주요 학습내용
 
