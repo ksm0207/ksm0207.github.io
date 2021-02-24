@@ -1,7 +1,7 @@
 ---
 title: Spring 입문서 [기본편 02]
 author: Kim
-date: 2021-02-23 17:40 +0900   # 2019-08-20 19:34:00 0900
+date: 2021-02-22 17:40 +0900   # 2019-08-20 19:34:00 0900
 categories : ["Spring", ""]
 tags: [Spring,null]
 comments : true
