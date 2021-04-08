@@ -4,7 +4,7 @@
 # --------------------------
 title: Study                          # the main title
 
-tagline: Test   # it will display as the sub-title
+tagline: Commit .. Commit !!!   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   읽거나, 보거나, 듣거나, 쓰거나
@@ -80,7 +80,7 @@ theme_mode:   # [light|dark]
 img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://image.freepik.com/free-vector/cute-samoyed-dog-icon_42750-298.jpg
+avatar: https://icon-library.net/images/github-icon-white/github-icon-white-26.jpg
 
 # boolean type, the global switch for ToC in posts.
 toc: true
