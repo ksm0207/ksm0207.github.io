@@ -607,13 +607,13 @@ $sidebar-display: "sidebar-display";
     &:hover {
       @include no-text-decoration;
 
-      color: #fff;
+      color: rgb(0, 0, 0);
     }
   }
 
   #avatar {
     &:hover > a {
-      border-color: #fff;
+      border-color: rgb(0, 0, 0);
     }
 
     > a {
