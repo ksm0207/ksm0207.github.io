@@ -196,3 +196,126 @@ try 블럭에 오신것을 환영합니다.
 100
 잘하셨습니다 입력한 값은 100 입니다 
 ```
+
+# (2) ArithmeticException
+
+### 예외적인 산술 조건이 발생할때 ```java.lang.ArithmeticException``` 
+
+ArithmeticException 예외는 대표적으로 어떠한 ``` 수 ``` 를 0 으로 나누는 경우 발생합니다 ( /by zero)<br>
+예시를 돕는 코드는 다음과 같습니다<br>
+
+```java
+package BlogPost;
+
+import java.util.Scanner;
+
+public class ArithmeticException{
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+
+        int x = 0;
+        int y = 0;
+        double res = 0.0;
+
+        System.out.println("첫번째 정수를 입력하세요");
+        x = scan.nextInt();
+        System.out.println("두번째 정수를 입력하세요");
+        y = scan.nextInt();
+
+        try {
+            res = x / y;
+            System.out.println(res);
+
+        }catch (java.lang.ArithmeticException error){
+            System.out.println("Error : "+ error.getMessage());
+        }
+    }
+}
+```
+
+위 코드를 실행시킨 결과 <br>
+```java
+첫번째 정수를 입력하세요
+1
+두번째 정수를 입력하세요
+0
+Error : / by zero
+```
+
+# (3) NullPointerException
+
+### 잘못된 Null 참조를 할 때 발생할때
+
+NullPointerException 은 프로그램이 Null인 객체의 멤버에 접근하려 할 때 발생하는 예외상황을 말합니다<br>
+
+```java
+package BlogPost;
+
+public class NullPointerException {
+
+    public static void main(String[] args) {
+
+        Person p = null;
+        System.out.println(p.name);
+
+    }
+    class Person {
+        String name;
+        int age;
+    }
+}
+```
+위 코드에서 Person p = null 이라고 할당 된 값을 확인할 수 있습니다 이처럼 p 에 아무런 값을 할당하지 않는다면<br>
+사실상 p는 무늬만 Person 이고 아무것도 접근할 수 없게 됩니다 코드실행 결과는 다음과 같습니다<br>
+```java
+Exception in thread "main" java.lang.NullPointerException
+at BlogPost.NullPointerException.main(NullPointerException.java:8)
+```
+
+일반적으로 객체를 만들땐 Person p = new Person() 명령어를 사용하여서 Person객체를 만들 수 있고<br>
+객체를 만들면 Person 을 위해 사용 할 공간을 메모리에 할당 한 후 래퍼런스를 p에 할당하라는 뜻이됩니다<br>
+
+```java
+Person p = new Person();
+------------
+|   main   | 
+| Person p |          래퍼런스
+|          |   ---> String name 
+|          |         int   age
+|          |
+|----------|
+
+p.name = "Kim";
+p.age = ???;
+```
+
+하지만 Person p = null 로 할당하게 되면 p 에는 아무런 래퍼런스도 없게되어서 NullPointerException을 발생합니다<br>
+즉 null로 할당한 p를 p.name 으로 접근한다면 잘못된 접근 이라고 볼수 있습니다<br>
+
+이런 상황을 막기 위해서 객체가 null 일 경우 아래와 같이 체크할 수 있습니다<br>
+
+```java
+package BlogPost;
+
+public class NullPointerException {
+    
+    public static void main(String[] args) {
+        Person p = null;
+        if (p == null) {
+            System.out.println("is Null");
+            return ;
+        }else{
+            System.out.println(p.name);
+        }
+
+    }
+    class Person {
+        String name;
+        int age;
+    }
+}
+코드실행 : is Null
+```
+NullPointerException 은 추후 추가로 포스팅 될 예정입니다<br>
+
+
