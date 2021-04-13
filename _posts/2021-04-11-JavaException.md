@@ -289,7 +289,7 @@ p.name = "Kim";
 p.age = ???;
 ```
 
-하지만 Person p = null 로 할당하게 되면 p 에는 아무런 래퍼런스도 없게되어서 NullPointerException을 발생합니다<br>
+하지만 Person p = null 로 할당하게 되면 p 에는 아무런 래퍼런스가 없어서 NullPointerException을 발생합니다<br>
 즉 null로 할당한 p를 p.name 으로 접근한다면 잘못된 접근 이라고 볼수 있습니다<br>
 
 이런 상황을 막기 위해서 객체가 null 일 경우 아래와 같이 체크할 수 있습니다<br>
@@ -314,8 +314,160 @@ public class NullPointerException {
         int age;
     }
 }
-코드실행 : is Null
+실행결과 ▼
+is Null
 ```
 NullPointerException 은 추후 추가로 포스팅 될 예정입니다<br>
+
+
+# (4) ArrayIndexOutOfBoundsException
+
+### 잘못된 Index에 접근 : -  배열 Index 의 사이즈가 같거나 범위를 벗어날때 발생
+
+배열을 사용하다 보면 종종 ```ArrayIndexOutOfBoundsException``` 이 발생하는 경우가 있습니다<br>
+이것은 배열의 원소에 접근하다가 생긴 것 이며 다음 예제와 함께 해결방법을 알아보도록 하겠습니다<br>
+
+```java
+package BlogPost;
+public class ArrayIndexOutOfBoundsException {
+    public void print(int j){
+        int [] arr = {1,2,3,4};
+        System.out.println("Result = " + arr[j]);
+        // Index [] :   0 1 2 3
+        // int [] arr : 1 2 3 4
+    }
+    public static void main(String[] args) {
+        ArrayIndexOutOfBoundsException arrException = new ArrayIndexOutOfBoundsException();
+        arrException.print(4);
+    }
+}
+실행결과 ▼
+
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException:
+Index 4 out of bounds for length 4
+at BlogPost.ArrayIndexOutOfBoundsException.print(ArrayIndexOutOfBoundsException.java:5)
+at BlogPost.ArrayIndexOutOfBoundsException.main(ArrayIndexOutOfBoundsException.java:11)
+```
+
+에러내용을 복습해보자면 12번 라인을 실행하였고 5번 위에 thorow를 던지고 있는 상황입니다<br>
+5번라인 위에서 발생한 것은 Index 4 out of bounds for length 4 입니다 원인을 살펴보면 다음과 같습니다<br>
+
+현재 int 타입의 배열 arr에  1,2,3,4 값을 넣은 뒤 ```파라미터 int j```를 받아 arr 배열의 ```j번째``` 값을 호출하고<br>
+배열의 크기는 4 size 인데 호출하려는 값은 Index 길이를 초과하기 때문에 생긴 예외발생 입니다<br>
+
+```java
+int [] arr = {1,2,3,4} 는 Index ㅁ ㅁ ㅁ ㅁ 총 4 size 이지만
+arrException.print(4) j번째를 구하려고 한다면
+Index ㅁ ㅁ ㅁ ㅁ [ㅁ]?? 를 호출하는 것 과 같기때문에 Index 범위를 벗어남
+```
+
+이제 이런 예외가 발생했을 경우 에외처리 방법은 총 3가지가 있습니다<br>
+* (1) try / catch 키워드 사용하기
+
+먼저 (1) try / catch 키워드를 사용해서 예외처리를 알아보겠습니다<br>
+
+```java
+package BlogPost;
+
+import java.util.Scanner;
+
+public class ArrayIndexOutOfBoundsException {
+
+    public void print(int j) {
+        try {
+            int [] arr = {1,2,3,4};
+            System.out.println("Result : " + arr[j]);
+        }catch(java.lang.ArrayIndexOutOfBoundsException error){
+            System.out.println("Catch 발생");
+            System.out.println("0 ~ 3 까지만 입력하십시오.");
+            System.out.println(error.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("배열에 값을 넣어봅시다");
+        ArrayIndexOutOfBoundsException arrException = new ArrayIndexOutOfBoundsException();
+        Scanner scan = new Scanner(System.in);
+
+        int val = scan.nextInt();
+        arrException.print(val);
+    }
+}
+실행결과 ▼
+배열에 값을 넣어봅시다
+3
+Result : 4
+
+배열에 값을 넣어봅시다
+11
+Catch 발생
+0 ~ 3 까지만 입력하십시오.
+Index 11 out of bounds for length 4
+```
+이 코드는 main에서 값을 입력받도록 하였고 파라미터 j는 ```int val = scan.nextInt()``` 정수를 받습니다<br>
+그후 try 키워드 안에서 배열의 범위가 벗어나서 예외가 발생할 시 catch 키워드에 지정한 예외처리가 됩니다
+
+
+# (5) NumberFormatException
+
+### 문자를 숫자로 바꾸려고 할 때 발생하는 예외처리
+
+NumberFormatException 을 읽어볼 때 이름에서도 유추할 수 있듯이 숫자가 아닌 타입을 정수형 으로 변환할때<br>
+일어나는 것 입니다 보통 문자열을 int 형으로 변환할 때 사용할때 자주 일어나는 편 입니다 <br>
+
+다음 예제는 main 에서 NumberFormatException 객체에 String 형으로 데이터를 보낸다음<br>
+데이터를 받는 parseInt 멤버 메소드에는 try / catch 키워드를 통해 예외처리를 해보는 예제 입니다<br>
+
+```java
+package BlogPost;
+
+import java.util.Scanner;
+
+public class NumberFormatException {
+    // by kim 
+
+    public int parseInt(String str){
+        try {
+            System.out.println("Result : " + str);
+            return Integer.parseInt(str);
+
+        }catch (java.lang.NumberFormatException error){
+            System.out.println("Catch 발생");
+            System.out.println(error);
+            System.out.println(error.getMessage());
+            return 0;
+        }
+    }
+
+    public static void main(String[] args) {
+        NumberFormatException nfe = new NumberFormatException();
+        Scanner scan = new Scanner(System.in);
+        String strInput = scan.next();
+        nfe.parseInt(strInput);
+    }
+}
+```
+실행결과 는 다음 과 같습니다 Result 에 123 이 나온 이유는 return 값이 Intger.parseInt() 이여서 그렇습니다<br>
+Integer.parseInt() 메소드는 문자열 을 정수형 으로 변환 할 때 사용하고 알고리즘 문제 풀 때도<br>
+자주 사용하는 메소드 입니다, 현재 123을 입력했을때는 문자열 이였지만 출력할 때 값은 정수형이 된 셈이 된것입니다<br> 
+```java
+123
+Result : 123
+```
+
+그럼 NumberFormatException 은 어떻게 일으킬 수 있는지 알아보기 위해 입력을 다음과 같이 해주었습니다<br>
+
+```java
+123a 입력값
+Result : 123a
+
+Catch 발생
+java.lang.NumberFormatException: For input string: "123a"
+For input string: "123a"
+```
+아까와 같이 Intger.parseInt() 메소드를 통해 문자열을 정수형으로 변환 할 수 있었지만<br>
+123a 를 입력 한 순간에 예외가 발생하였다고 catch 키워드가 알려주는 상황이 되어버렸습니다<br>
+
+※ 123a는 숫자와 문자가 조합된 문자열이기 때문에 Intger.parseInt() 메소드가 제 역할을 못한 것 입니다<br>
 
 
