@@ -447,23 +447,26 @@ public class NumberFormatException {
     }
 }
 ```
-실행결과 는 다음 과 같습니다 Result 에 123 이 나온 이유는 return 값이 Intger.parseInt() 이여서 그렇습니다<br>
-Integer.parseInt() 메소드는 문자열 을 정수형 으로 변환 할 때 사용하고 알고리즘 문제 풀 때도<br>
-자주 사용하는 메소드 입니다, 현재 123을 입력했을때는 문자열 이였지만 출력할 때 값은 정수형이 된 셈이 된것입니다<br> 
+실행결과는 다음 과 같습니다<br>
 ```java
 123
 Result : 123
 ```
 
-그럼 NumberFormatException 은 어떻게 일으킬 수 있는지 알아보기 위해 입력을 다음과 같이 해주었습니다<br>
+Result = 123 은 return 할때 Integer.parseInt(str) 을 반환 하고 있기 때문입니다<br> 
+Integer.parseInt() 메소드는 문자열 을 정수형 으로 변환 할 때 사용하고 알고리즘 문제 풀 때도 자주 사용됩니다<br>
+데이터를 처리하는 과정은 str = "123" 을 정수형 123 으로 변환되어서 try 키워드 안에는 예외가 발생하지 않게 됩니다<br>
+
+그럼 NumberFormatException은 어떻게 예외를 일으킬 수 있는지 알아보기 위해 입력을 다음과 같이 해주었습니다<br>
 
 ```java
-123a 입력값
+123a
 Result : 123a
 
 Catch 발생
 java.lang.NumberFormatException: For input string: "123a"
 For input string: "123a"
+
 ```
 아까와 같이 Intger.parseInt() 메소드를 통해 문자열을 정수형으로 변환 할 수 있었지만<br>
 123a 를 입력 한 순간에 예외가 발생하였다고 catch 키워드가 알려주는 상황이 되어버렸습니다<br>
