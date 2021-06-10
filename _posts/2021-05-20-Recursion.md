@@ -28,7 +28,7 @@ public class Recursion {
 	
 	public static void RecurstionTest() {
 		
-		System.out.println("안녕하세요 ?");
+		System.out.println("안녕하세요 ?1");
 		RecurstionTest();
 	}
 }
