@@ -65,7 +65,7 @@ comments : true
 <img src ="/post/JavaDownload/path3.png">
 <img src ="/post/JavaDownload/path4.png">
 
-* ※ 변수 이름 : HELLO_JAVA<br>
+* ※ 변수 이름 : JAVA_HOME (대문자 필수)<br>
 * ※ 변수 값 : JDK가 설치 된 ``` 기본 경로 ``` 를 말합니다.<br>
 * ※ JDK가 설치된 폴더로 들어가 경로를 복사하면 쉽게 처리 할 수 있습니다.<br>
 
@@ -74,17 +74,24 @@ comments : true
 <img src ="/post/JavaDownload/path5.png">
 
 
-(3) 이제 마지막 으로 ```시스템 변수(S)``` 안에 있는 ``` 변수 목록에 Path``` 를 더블클릭 해 줍니다<br>
-그리고 새로 만들기를 클릭하여 방금 생성한 변수 이름 : HELLO_JAVA 를 붙여 줄 것 입니다<br>
 
+(3) 이제 마지막 으로 ```시스템 변수(S)``` 안에 있는 ``` 변수 목록에 Path``` 를 더블클릭 해 줍니다<br>
+그리고 ``` 새로 만들기``` 를 클릭하여 방금 생성한 변수 이름 : ```JAVA_HOME``` 을 붙여 줄 것 입니다<br>
+
+※ Path 클릭<br>
 <img src ="/post/JavaDownload/path6.png">
+
+※ 새로 만들기 에서 ``` %JAVA_HOME%\bin ``` 입력
 <img src ="/post/JavaDownload/path7.png">
 
-(4) ```%HELLO_JAVA%\bin;``` 을 넣어 주고 확인을 누르면 이제부터 컴퓨터에 자바를 실행할 수 있는<br>
+(4) ```%JAVA_HOME%\bin``` 을 넣어 주고 확인을 누르면 이제부터 컴퓨터에 자바를 실행할 수 있는<br>
 환경을 구축하였습니다 이제 테스트를 통해 정말 Java 가 잘 설치 됐는지 확인 해 보겠습니다<br>
 
+(5) 테스트 안될 때 : 환경 변수 편집 --> 새로 만들기 --> ```C:\Program Files\Java\jdk-11.0.11\bin```<br>
+    입력하고 가장 위로 이동시켜보기.<br>
 
-## Java 설치 테스트 
+
+## Java 실행 확인 테스트 
 
 테스트 하는 방법은 간단합니다, 윈도우 + R을 눌러서 cmd를 입력 후 엔터를 쳐 보면<br>
 다음과 같은 화면이 나오는데 이곳에서 테스트를 진행할 수 있습니다<br>
