@@ -59,13 +59,11 @@ VALUES (1,'Kim','Gmail','Man','삼겹살',to_date('1995-02-07','yyyy-mm-dd'));
 (3) 값 조회하기<br>
 
 ```java
-SELECT * FROM MYFirstTable
-
-결과
-
-NUM_ID	NAME	EMAIL	GENDER	FAV_FOOD	BIRTH_DAY
- 1	    Kim	  Gmail	 Man	  삼겹살	  95/02/07
+SELECT * FROM MYFirstTable;
 ```
+결과<br>
+
+<img src = "/post/Oracle/insert_result.png">
 
 작성시 ```INTO 절의 컬럼 개수 , 데이터 타입```이 ```VALUES 절의 컬럼 개수와 데이터 타입은 동일해야 합니다```<br>
 
