@@ -1,5 +1,5 @@
 ---
-title:  자바기반의 응용SW개발자 양성과정 3일차 - 인크레파스
+title:  자바기반의 응용SW개발자 양성과정 3일차 - 서브쿼리 / Join
 author: Kim
 date: 2021-07-09 22:00:00 +0900
 categories : [Java,Oracle]
@@ -7,7 +7,7 @@ tags: [Java,Oracle]
 ---
 
 # 서브쿼리 
-
+<a href = "https://jerryjerryjerry.tistory.com/m/54">[SQL] 서브쿼리(참고사이트)</a>
 
 서브쿼리는 SQL 문장 안에 ```또 다른 SQL 문장이 포함된 것  ``` 입니다<br>
 최종 결과를 출력하는 쿼리를 ``` 메인 쿼리 ``` 라고 한다면 보조 역할을 하는<br>
@@ -20,6 +20,10 @@ SELECT문을 ``` 서브 쿼리 ``` 라고 정의할 수 있을 것 같습니다<
 서브쿼리 의 장점은 한번 읽어온 데이터를 메모리 안에서 가공하여 사용할 수 있도록<br>
 하는 것 이고 즉 , 동일한 데이터를 다시 한번 이용하여 복잡한 가공에도 물리적인<br>
 ``` I/O ``` 를 줄여 줄 수 있습니다.<br>
+
+※ I/O : 입 출력 의 약자이며 데이터를 전송하는 프로그램 , 장치를 일컫는말<br>
+※ (Input / Output)<br>
+
 
 정리하면 DB에 여러 번 접속해야 하는 상황을 한번에 처리가 가능하고<br>
 DB에 접속시도를 줄여 속도를 증가 시킬 수 있다.<br>
@@ -51,7 +55,7 @@ DB에 접속시도를 줄여 속도를 증가 시킬 수 있다.<br>
 
 
 
-# 서브쿼리 실습해보기 
+# 서브쿼리 간단히 실습해보기 
 
 * DB : Oracle , HR계정
 * 테이블 : employees
@@ -72,7 +76,7 @@ Michael	    13000	MK_MAN
 ```
 
 
-(2) 결과를 알아냈으니 다음 다음 문장을 만들어 줍니다<br>
+(2) 결과를 알아냈으니 급여가 13000 보다 큰 직원들은 누가 있을까요?<br>
 
 ```java
 SELECT e.employee_id ,  e.first_name , e.salary , e.job_id
@@ -89,7 +93,7 @@ EMPLOYEE_ID	 FIRST_NAME	SALARY	JOB_ID
 146	          Karen	    13500	SA_MAN
 ```
 
-(1) , (2) 는 각각 한번씩 두번을 DB에 접속한 경우이므로 이것을 이제 서브쿼리로<br>
+(1) , (2) 는 각각 한번씩 두번을 DB에 접속한 경우이므로 이것을 서브쿼리로<br>
 
 데이터를 처리해준 코드입니다.<br>
 
@@ -111,7 +115,7 @@ EMPLOYEE_ID	 FIRST_NAME	SALARY	JOB_ID
 145	          John	    14000	SA_MAN
 146	          Karen	    13500	SA_MAN
 ```
-메인쿼리 , 서브쿼리 모두 독립적인 실행이라고 봐도 무방 할 것 같습니다.
+메인쿼리 , 서브쿼리 모두 독립적인 실행이라고 봐도 무방 할 것 같습니다.<br>
 
 
 다음문제<br>
@@ -189,6 +193,128 @@ WHERE e.employee_id = 159)
 서브쿼리를 사용할 땐 개인코딩법 마다 달라지겠지만 , 중요한건 문제를 단계별로<br>
 분석하여 하나씩 접근 해줘야 마지막에 서브쿼리를 만드는데 큰 어려움이 없을 것 같습니다.<br>
 
+# 다양한 예제로 서브쿼리 활용하기
+
+* 새로 생성한 테이블 명 : Test
+<img src = "/post/Oracle/new_table.png"><br>
+
+
+* DB : Oracle , HR계정
+* 테이블 : Test
+* 조건 : 키가 200보다 작은 사람들 찾기
+* 출력 : 번호 , 이름 , 키  순으로 출력<br>
+
+(1) 먼저 키가 200보다 작은 사람들을 출력하기
+
+```java
+// 키가 200보다 작은 사람 찾고 , 번호 , 이름 , 키 순으로 출력
+
+SELECT t.num_id , t.name , t.height
+FROM Test t
+WHERE t.height < 200;
+```
+<img src = "/post/Oracle/new_table_example2.png"><br>
+
+
+(2) 이름이 'Kim' 인 사람의 키보다 작은 사람들 출력하기 서브쿼리 활용
+
+```java
+SELECT t.num_id , t.name , t.height
+FROM Test t
+WHERE t.height < (SELECT t.height FROM Test t WHERE t.name = 'Kim')
+```
+<img src = "/post/Oracle/new_table_example.png"><br>
+
+# 서브쿼리 - ANY , ALL
+
+* ANY
+
+ANY 는 ``` 서브쿼리의 여러 개의 결과 중 한 가지만 만족합니다 ```<br>
+※ SQL 연산자 종류 중 OR 와 같이 하나의 조건이 맞다면 출력 할 수 있습니다<br>
+
+ANY 의 기본 형태는 다음 과 같습니다<br>
+
+```java
+SELECT col_name1 , col_name2 FROM 테이블이름
+WHERE col_name 1 >= ANY (SELECT col_name2
+FROM 테이블이름 WHERE 조건식)
+```
+서브쿼리 시작 시 ANY () 소괄호로 묶고 시작 할 수 있습니다<br>
+
+* ANY 예제
+
+* DB : Oracle , HR계정
+* 테이블 : Test
+* 조건 : ```주소가 인천인 사람들의 키보다 크거나 같은 경우```
+* 출력 : 번호 , 이름 , 키 , 주소  순으로 출력<br>
+
+
+(1) 근무지가 '인천' 인 사람들 찾는다.<br>
+
+```java
+SELECT t.num_id , t.name , t.height , t.addr
+FROM Test t
+WHERE t.addr = '인천';
+```
+
+(2) '인천' 인 사람들의 키보다 크거나 같은 인원을 출력한다 - 서브쿼리 & ANY
+
+```java
+SELECT t.num_id , t.name , t.height , t.addr
+FROM Test t
+WHERE t.height >= ANY (SELECT t.height FROM Test t WHERE t.addr='인천');
+```
+<img src = "/post/Oracle/any.png"><br>
+
+※ '인천' 인 사람은 Seo 이고 ANY 조건은 Seo 보다 키가 크거나 Kim 보다 키가 크면 출력 됩니다<br>
+
+
+* ALL
+
+ALL은 서브쿼리의 여러 개의 결과를 모두 만족할 때 사용 할 수 있습니다<br>
+※ AND 연산자와 같이 모든 조건이 만족해야만 합니다<br>
+
+ALL 의 기본 형태는 다음 과 같습니다<br>
+
+```java
+SELECT col_name1 , col_name2 FROM 테이블이름
+WHERE col_name 1 >= ANY (SELECT col_name2
+FROM 테이블이름 WHERE 조건식)
+```
+
+* ALL 예제
+
+* DB : Oracle , HR계정
+* 테이블 : Test
+* 조건 : ``` 주소가 IT 인 사람들의 키보다 작은 경우를 찾는다.```
+* 출력 : 번호 , 이름 , 키 , 주소  순으로 출력<br>
+
+```java
+
+SELECT t.num_id , t.name , t.height , t.addr
+FROM Test t
+WHERE t.height < ALL (SELECT t.height FROM Test t WHERE t.addr = 'IT');
+```
+<img src = "/post/Oracle/all.png"><br>
+
+주소가 IT 인 사람은 Admin 이며 ALL 조건은 Admin 보다 키가 작은 사람들이 출력 됩니다<br>
+
+
+## 문제<br>
+
+* DB : Oracle , HR계정
+* 테이블 : Test
+* 조건  : 주소가 여의도 인 사람들 중 키가 가장 작은 값 보다 큰 키를 가진 사람은?
+* 조건2 : 내림차순으로 정렬하고 ANY 와 MIN을 사용하여 출력 해 주세요. 
+* 출력 : 번호 , 이름 , 키 , 주소  순으로 출력<br>
+
+```java
+SELECT t.num_id , t.name , t.height , t.addr
+FROM Test t
+WHERE t.height > ANY (SELECT min(t.height) FROM Test t WHERE t.addr='여의도')
+ORDER BY t.height desc;
+```
+<img src = "/post/Oracle/any2.png"><br>
 
 
 # Join
