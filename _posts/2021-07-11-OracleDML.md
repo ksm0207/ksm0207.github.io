@@ -22,12 +22,49 @@ tags: [Java,Oracle]
 Oracle에서 테이블에 데이터를 입력할 때는 Insert 문을 사용하면 됩니다<br>
 Insert 문은 SQL의 가장 기본적인 방법이며 , 상황에 따라 다양한 방법으로 사용 할 수 있습니다<br>
 
+
+
 - Insert 구문 예시 - 기본 사용법
 
 ```java
 
 INSERT INTO 테이블명 ( 컬럼명 1 , 컬럼명 2, 컬럼명 3, 컬럼명4)
 VALUES (value1 , value2 , value3 , value4) 
+```
+
+- DB : Oracle , 새로운 테이블 생성 + 값 넣어보기
+
+(1) HR계정에 새로운 테이블을 생성합니다<br>
+```java
+
+CREATE TABLE MyFirstTable
+
+( num_id number PRIMARY
+,   name  varchar2(30)
+,   email varchar2(30)
+,   gender varchar2(30)
+, fav_food varchar2(30)
+, birth_day date);
+```
+
+(2) INSERT 구문을 사용하여 데이터에 추가<br>
+
+```java
+INSERT INTO MyFirstTable
+
+(num_id , name , email,gender,fav_food , birth_day)
+VALUES (1,'Kim','Gmail','Man','삼겹살',to_date('1995-02-07','yyyy-mm-dd'));
+```
+
+(3) 값 조회하기<br>
+
+```java
+SELECT * FROM MYFirstTable
+
+결과
+
+NUM_ID	NAME	EMAIL	GENDER	FAV_FOOD	BIRTH_DAY
+ 1	    Kim	  Gmail	 Man	  삼겹살	  95/02/07
 ```
 
 작성시 ```INTO 절의 컬럼 개수 , 데이터 타입```이 ```VALUES 절의 컬럼 개수와 데이터 타입은 동일해야 합니다```<br>
