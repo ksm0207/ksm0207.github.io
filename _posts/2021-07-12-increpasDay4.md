@@ -2,8 +2,8 @@
 title:  자바기반의 응용SW개발자 양성과정 4일차 - 테이블 생성 , DML , 계정생성 권한부여
 author: Kim
 date: 2021-07-12 10:30:00 +0900
-categories : [Java,Oracle]
-tags: [Java,Oracle]
+categories : [Oracle,SQL]
+tags: [Oracle,SQL]
 ---
 
 # 테이블 생성 

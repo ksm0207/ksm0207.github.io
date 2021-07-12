@@ -2,8 +2,8 @@
 title:  자바기반의 응용SW개발자 양성과정 1일차 - 인크레파스
 author: Kim
 date: 2021-07-07 21:15:00 +0900
-categories : [Java,Oracle]
-tags: [Java,Oracle]
+categories : [Oracle,SQL]
+tags: [Oracle,SQL]
 ---
 
 ## Day 1 오라클 XE 교육용

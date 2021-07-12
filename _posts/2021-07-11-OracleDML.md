@@ -2,8 +2,8 @@
 title:  Oracle DML 연습하기
 author: Kim
 date: 2021-07-09 22:00:00 +0900
-categories : [Java,Oracle]
-tags: [Java,Oracle]
+categories : [Oracle,SQL]
+tags: [Oracle,SQL]
 ---
 
 # DML 종류 와 뜻
