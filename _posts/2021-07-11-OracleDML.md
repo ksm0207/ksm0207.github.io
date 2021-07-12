@@ -94,11 +94,13 @@ VALUES (value1 , value2 , value3, value4 )
 ※ FROM절 뒤에 WHERE 절 사용 가능.<br>
 
 ```java
+
 INSERT INTO 테이블명 (컬럼명1 , 컬럼명2, 컬럼명3, 컬럼명4)
 SELECT value1 , 참조변수.컬럼명2 , 참조변수.컬럼명3, ....
 
 FROM 테이블명 . 참조변수(파라미터)
 WHERE 참조변수.컬럼명2 = 'IT'
+
 ```
 
 
