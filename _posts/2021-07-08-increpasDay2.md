@@ -2,8 +2,8 @@
 title:  자바기반의 응용SW개발자 양성과정 2일차 - 인크레파스
 author: Kim
 date: 2021-07-08 08:42:00 +0900
-categories : [Oracle,SQL]
-tags: [Oracle,SQL]
+categories : [Increpas]
+tags: [Increpas]
 ---
 
 ## Day 2 SQL 다양한 함수 , GROUP by , decode() .. 

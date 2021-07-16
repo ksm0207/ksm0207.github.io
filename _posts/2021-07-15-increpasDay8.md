@@ -1,9 +1,9 @@
 ---
-title:  자바기반의 응용SW개발자 양성과정 8일차
+title:  자바기반의 응용SW개발자 양성과정 8일차 - 자바
 author: Kim
-date: 2021-07-13 09:19:00 +0900
-categories : [Oracle,SQL]
-tags: [Oracle,SQL]
+date: 2021-07-15 09:19:00 +0900
+categories : [Increpas]
+tags: [Increpas]
 ---
 
 
@@ -89,6 +89,8 @@ int res = a1 + b1 ; O
 위 코드는 왜 오류일 까 ? <br>
  자바에서는 ```32bit 체제 int 형 밑의 자료형들``` --> ```(byte 와 shrot)``` 들은<br>
 연산을 수행하면 결과 값에 상관없이 무조건 int 형으로 형변환 된다<br>
+
+※ byte short 끼리 연산할 경우 표현할 수 있는 범위를 벗어나게 때문에 <br>
 
 - byte : 8bit
 - shrot : 16bit
@@ -183,7 +185,6 @@ public class AscTest2 {
 	}
 }
 ```
-
 Char 형은 내부적으로 모두 아스키코드 정수값으로 저장된다 즉 이 말은 키보드에 있는<br>
 모든 글자들은 각각 입력값이 있다고 보면 될 것 같다<br>
 

@@ -4,6 +4,7 @@ author: Kim
 date: 2021-07-16 06:18:00 +0900
 categories : [Java]
 tags: [Java]
+pin: true
 ---
 
 # 자료형 개념
@@ -73,7 +74,7 @@ Java 자료형을 제대로 정리해놓은 것이 없어 명확하게 정리해
 
 <img src = "/post/Java/memory2.png"><br>
 
-그림 2번 의 경우는 String ``` name ``` 이라는 ```다른 메모리``` 공간에 주소가 저장이 되고<br>
+그림 2번 의 경우는 String ``` name ``` 이라는 다른 메모리 공간에 주소가 저장이 되고<br>
 name에 잡힌 메모리 공간에는 "Kim" 이라는 값이 주소를 찾아가 값을 저장할 수 있습니다<br>
 
 

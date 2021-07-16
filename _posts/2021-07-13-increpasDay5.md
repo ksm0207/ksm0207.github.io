@@ -2,8 +2,8 @@
 title:  자바기반의 응용SW개발자 양성과정 5일차 - 데이터베이스 모델링
 author: Kim
 date: 2021-07-12 10:30:00 +0900
-categories : [Oracle,SQL]
-tags: [Oracle,SQL]
+categories : [Increpas]
+tags: [Increpas]
 ---
 
 # 데이터베이스 설계

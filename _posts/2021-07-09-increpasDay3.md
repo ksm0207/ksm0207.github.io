@@ -2,8 +2,8 @@
 title:  자바기반의 응용SW개발자 양성과정 3일차 - 서브쿼리 / Join
 author: Kim
 date: 2021-07-09 22:00:00 +0900
-categories : [Oracle,SQL]
-tags: [Oracle,SQL]
+categories : [Increpas]
+tags: [Increpas]
 ---
 
 # 서브쿼리 
