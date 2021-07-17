@@ -1,5 +1,5 @@
 ---
-title:  자바기반의 응용SW개발자 양성과정 8일차 - 자바
+title:  자바기반의 응용SW개발자 양성과정 7일차 - 자바
 author: Kim
 date: 2021-07-15 09:19:00 +0900
 categories : [Increpas]
