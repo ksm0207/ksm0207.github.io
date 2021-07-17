@@ -265,8 +265,7 @@ System.out.println(test);
 
 ## if - else  swithch 제어문 반복문
 
-- if문
-※ if : 만약에<br>
+- if문<br>
 
 if문의 기본적인 형태는 다음과 같다<br>
 
@@ -276,7 +275,7 @@ else {실행}
 else if : if 문과 동일
 ```
 
-(1) if else , else if문의 형태<br>
+(1)``` if else , else if문의 형태```<br>
 
 ```java
 if (조건식)
@@ -297,13 +296,28 @@ else
 ※ 한쪽이 실행되면 한쪽은 실행될 수 없다
 
 
+Switch문의 작동순서<br>
 
-★ : if - else 교재 보고 예제풀이 하기
+```java
+switch(value)
+{
+  case 변수값: 실행코드
+               break;
+  case 변수값: 실행코드
+               break;
+  case 변수값: 실행코드
+               break;
+               .
+               .
+               .
+}
+```
+if문과 달리 ```실행조건``` 이 두개로 나뉜다<br>
 
-<a href = "https://github.com/ksm0207/increpas/tree/main/Example/src/increpas_example02">0716 교재 문제풀이</a><br>
+※ break 는 실행문이 끝날때마다 적어줘야 한다 안하게 되면 case를 이어 실행하게된다<br>
+※ 해당 로직을 실행하지 않고 밖으로 나온다는 것으로 받아들이자.<br>
 
-
-※ Switch 와 if else 중 어떤 것을 써야할까?<br>
+※ Switch 와 if else 중 어떤 것을 써야할까? (정리)<br>
 
 - Switch 는 지정된 변수를 입력받고 미리 정해놓은 ``` 값 ``` 을 찾아 Case를 실행하는 반면
 - ```if else``` 구문은 boolean 의 결과 값을 내놓는 조건문에 따라<br>
@@ -311,5 +325,11 @@ else
 
 if else 문을 쓸 수 있는 모든 상황에 Switch 문을 사용할 수 있는건 아니지만<br>
 그와 반대로 모든 Switch 구문은 if else문으로 대체될 수 있다<br>
+
+★ : if - else + Switch 교재 보고 예제풀이 하기
+
+<a href = "https://github.com/ksm0207/increpas/tree/main/Example/src/increpas_example02">0716 교재 문제풀이</a><br>
+
+
 
 
