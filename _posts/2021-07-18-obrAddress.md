@@ -4,7 +4,6 @@ author: Kim
 date: 2021-07-18 22:30:00 +0900
 categories : [Java]
 tags: [Java]
-pin: true
 ---
 
 # 객체 주소
