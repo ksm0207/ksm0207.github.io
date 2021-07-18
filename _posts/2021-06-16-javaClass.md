@@ -55,7 +55,7 @@ Snack bananachip = new Snack …
 # 객체 변수 ( Instance Variable )
 
 Animal 클래스에 조금 더 발전시켜 Animal 클래스로부터 만들어지는<br>
-동물들에 이름을 지어주도록 해보겠습니다<br>
+동물 이름을 지어주도록 해보겠습니다<br>
 
 ```java
 public class Animal {
@@ -71,15 +71,15 @@ Animal 클래스에 name 이라는 ```String 변수```를 추가했습니다<br>
 객체변수 라고 하였고 이제 이것을 사용해보도록 하겠습니다<br>
 
 먼저 객체변수는 말 그대로 변수이므로 값을 대입할 수 있을 것 입니다<br>
-대입하기 전에 객체변수는 현재 어떤 값을 가지고 있는지 출력을 해야하는데<br>
+그럼 어떻게 객체 변수에 ``` 접근``` 해야 하는지를 알아야합니다<br>
 
-어떻게 객체 변수에 접근해야 하는지를 먼저 알아야합니다<br>
 객체 변수는 다음과 같이 . 연산자를 이용하여 접근할 수 있습니다<br>
 
 ```java
 Animal dog = new Animal 객체생성
 dog.name ( . 연산자를 이용하여 접근 )
 ```
+
 ```위와 같이 dog 객체를 생성하여``` dog 객체의 객체변수 name에 접근할 수 있습니다<br>
 이제 객체 변수에 어떤 값이 대입되어 있는지 다음과 같이 출력해보면.<br>
 
@@ -131,12 +131,12 @@ Animal 클래스에 추가된 setName 메소드는 다음과 같은 형태의 �
 입력으로 name 이라는 문자열을 받고 출력은 없는 형태의 메소드이며 메소드의<br>
 입출력에 대한 자세한 내용은 다음 장에 다뤄집니다<br>
 
-이번에는 setName 메소드의 내부를 살펴보면 setName 메소드는 다음과 같은 문장을<br>
-가지고 있습니다<br>
+이번에는 setName 메소드의 내부를 살펴보면 다음과 같은 문장을 가지고 있습니다<br>
 
 ```java
 this.name = name;
 ```
+
 여기서 ```this``` 에 대해서 이해 하는 것은 꽤 중요한 부분입니다 이 문장에 대한 설명은<br>
 잠시 보류하고 일단은 이 메소드를 호출하려면 다음과 같이 호출해야합니다.<br>
 
@@ -177,10 +177,10 @@ this.nama = “Puppy”;
 ```
 
 setName 메소드 내부에 사용된 ```this 키워드```는 Animal 클래스에 의해서 생성된<br>
-객체를 지칭하는데 만약 Animal dog = new Animal() 와 같이 dog 이라는 객체를 만들고<br>
-dog.setName(“Puppy”) 와 같이 dog 객체에 의해 setName 메소드를 호출하면<br>
+객체를 지칭하는데 만약 Animal dog = new Animal() 와 같이 dog 객체를 만들고<br>
+dog.setName(“Puppy”) 와 같이 메소드를 호출하면<br>
 
-setName 메소드 내부안에 있는 this 키워드는 dog 객체를 지칭하는 것 과 같습니다<br>
+setName 메소드 내부안에 있는 ```this 키워드는 dog 객체를 지칭하는 것``` 과 같습니다<br>
 
 그럼 만약에 ```Animal cat = new Animal()``` 으로 ```cat``` 객체를 만든 후 ```cat.setName(“Cat”)```<br>
 을 호출한다면 setName 메소드 내부에 this는 cat 객체를 가리키게 되는 것 이죠<br>
@@ -197,7 +197,7 @@ setName 메소드 내부안에 있는 this 키워드는 dog 객체를 지칭하�
 
 ```java
 Animal dog = new Animal();
-	   dog.setName("Puppy");
+       dog.setName("Puppy");
 	   
 Animal cat = new Animal();
        cat.setName("Cat");
@@ -236,7 +236,7 @@ Cat
 
 name 객체 변수는 공유되지 않는다는 것을 확인할 수 있습니다<br>
 이 부분은 너무 중요한 부분이며 필히 숙지해야하는 부분이라고 합니다<br>
-클래스에서 가장 중요한 부분은 객체 변수의 값이 독립적으로 유지된다는점<br>
+클래스에서 가장 중요한 부분은 ```객체 변수의 값이 독립적으로 유지된다는점```<br>
 
 클래스의 존재이유는 바로 이 점 때문이라고 볼 수 있습니다<br>
 객체지향적 이라는 말의 의미도 결국은 객체 변수의 값이 독립적으로 유지되기때문에<br>
