@@ -190,3 +190,235 @@ public class Ex4_for {
 	}
 }
 ```
+
+# 오후시간
+
+## while
+
+```java
+package pm;
+
+public class Ex1_while {
+	public static void main(String[] args) {
+		
+		int i = 1;
+		while(i <= 10) {
+			System.out.printf("%-2d", i);
+			++ i;
+		}
+		System.out.println();
+		i = 1;
+		int sum = 0;
+		while (i <= 10)
+			
+			sum = (sum) + (i++);
+		// printf() 첫번째 들어오는 값은 포맷을 지정함
+		System.out.printf("1 ~ 10 까지의 합 : %-3d" , sum);
+	}
+}
+```
+<strong>출력</strong><br>
+
+```java
+1 2 3 4 5 6 7 8 9 10
+1 ~ 10 까지의 합 : 55 
+```
+
+분석 (1)<br>
+
+```java
+int i = 1;
+while(i <= 10) {
+    System.out.printf("%-2d", i);
+    ++ i;
+}
+System.out.println(); // 줄바꿈
+```
+<strong>출력</strong><br>
+
+```java
+1 2 3 4 5 6 7 8 9 10
+```
+
+변수 i의 초기값은 1로 지정되어있고 while문은 i가 10보다 작거나 같은지 조건식을 주는데<br>
+결과는 true를 반환하여 ```1 2 3 4 5 6 7 8 9 10 ``` 를 출력할 수 있게 됩니다<br>
+
+※ true를 반환하므로 i는 점점 늘어나게 된다<br>
+
+분석 (2)<br>
+
+```java
+i = 1;
+int sum = 0;
+while (i <= 10) {
+    sum = (sum) + (i++);
+    System.out.println("Sum = " + sum + " " + "i = " + i);
+}
+// printf() 첫번째 들어오는 값은 포맷을 지정함
+System.out.printf("1 ~ 10 까지의 합 : %-3d" , sum);
+```
+첫번째 while 문이 종료되면서 i가 마지막으로 가지고 있는 값은 10을 가지고 있기 때문에<br>
+변수 i를 다시 1로 초기화하여 1부터 10까지의 합을 출력할 수 있게됩니다<br>
+
+<strong>while문이 연산하는 과정</strong><br>
+
+```java
+Sum = 1 i = 2
+Sum = 3 i = 3
+Sum = 6 i = 4
+Sum = 10 i = 5
+Sum = 15 i = 6
+Sum = 21 i = 7
+Sum = 28 i = 8
+Sum = 36 i = 9
+Sum = 45 i = 10
+Sum = 55 i = 11
+
+1 ~ 10 까지의 합 : 55 
+```
+
+## do-while
+
+- while 문 이나 for 문은 선 비교 후 처리이기 때문에<br>
+  조건에 만족하지 않으면 반복하지 않는다.<br>
+
+- do-while 문은 선 처리 후 비교이므로 조건에 만족하지 않아도<br>
+  최소 1번은 수행하게 되는 구조이다<br>
+
+```java
+do {
+    반복할 구문
+
+}while(조건식);
+```
+
+최소 1번은 다음과 같은 예를 든 것<br>
+```java
+package pm;
+
+public class Ex2_dowhile {
+	public static void main(String[] args) {
+		int i = 11;
+		do {
+			
+			System.out.printf("%-2d", i);
+			i ++;
+		} while (i <= 10);
+	}
+}
+출력
+11
+```
+
+## do - while 문을 이용하여 구구단 만들기
+
+- Scanner로 입력받기.
+
+```java
+package pm;
+
+import java.util.Scanner;
+
+public class Ex3_dowhile_G {
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.print("입력 : ");
+		
+		int i = 1;
+		
+		int dan = scan.nextInt();
+		
+		do {
+			System.out.println(dan + " * "+ (i) + " = " + (dan * i));
+			i ++;
+		} while (i <= 9);
+	}
+}
+```
+
+## 중첩 for문
+
+- for문안에 또 for문
+
+중첩for문 개념은 솔직히 어렵다고 생각했는데 이번 수업으로 완벽하게 이해하게 되었다<br>
+첫번째 for문은 행을 만드는 것 이라 생각하고 안에 들어가는 for문은 열을 만든다고 생각하면<br>
+
+중첩 for문의 개념은 쉽게 잡을 수 있다<br>
+
+```java
+package pm;
+public class Ex6_MultiFor {
+	public static void main(String[] args) {
+		
+		char c = 65;
+		
+		for (int i = 1 ; i <= 3 ; i ++) {  // start for 2 (행의 수를 만듦)
+			for (int j= 1; j <= 5 ; j++) { // start for1 (열의 수를 카운트)
+				System.out.printf("%-2c",c ++);
+			}
+			System.out.println();
+		}
+	}
+}
+출력
+A B C D E 
+F G H I J 
+K L M N O 
+```
+
+유명한 별찍기 문제<br>
+
+```java
+package pm;
+
+public class Ex7_MultiFor {
+	public static void main(String[] args) {
+
+		// * * * * *
+		// * * * * 
+		// * * *
+		// * *
+		// *
+		for (int i = 5 ; i > 0 ; i --) { // 5 4 3 2 1
+			
+			for (int j = 1 ; j <= i;  j ++) {
+				System.out.print(j);
+			}
+			    System.out.println();
+		}
+	}
+}
+출력
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+```
+
+## break문 + break label
+
+break문은 가장 가까운 반복문을 탈출할 때 쓴다<br>
+※ 중첩반복문을 사용할 때 전체를 탈출하지 못함.<br>
+
+오늘 수업하면서 처음 알게 된건데 break 에도 이름을 지어줄 수 있었다..<br>
+
+```java
+package pm;
+public class Ex10_break_label {
+	public static void main(String[] args) {
+		bk:for (int i = 0 ; i < 4 ; i ++) {
+			for (int j = 0 ; j < 5 ; j ++) {
+				System.out.printf("%-2d" , j+1);
+				// 3의 배수를 만나면 반복문 탈출
+				if ( (j+1) %3 ==0 ) {
+					break bk; // label을 붙이면 for(1) 문을 탈출한다
+				}
+			} // end of for(2)
+			System.out.println();
+		}// end of for(1)
+	}
+}
+```
+만약 종료시킬 반복문이 있다면 앞에 사용할 이름: 이렇게 쓰면 해당 반복문을 탈출 할 수 있다<br>
