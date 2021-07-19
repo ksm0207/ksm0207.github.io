@@ -1,5 +1,5 @@
 ---
-title:  자바기반의 응용SW개발자 양성과정 9일차 - 자바
+title:  자바기반의 응용SW개발자 양성과정 9일차 - 제어문 (2)
 author: Kim
 date: 2021-07-19 06:00:00 +0900
 categories : [Increpas]
