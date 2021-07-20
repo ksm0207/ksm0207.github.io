@@ -209,6 +209,16 @@ Phone 클래스에 접근하려면 필요한것이 무엇일까 ? 그럴려면 �
 객체의 멤버들에게 접근을 제한할 수 있고 제한 속성에 따라 어떤 멤버에게는 접근을 허용하고<br>
 어떤 멤버에게는 접근을 제한한다면 정보에 대한 은닉성을 높여 정보의 유지를 고려하는 효과를 가질 수 있다<br>
 
+멤버들은 객체 자신들만의 속성이자 특징을 가지고 있으므로 대외적으로 공개되는 것은 결코 좋은 방법이<br>
+아니라고 한다 . 이런 이유로 프로그래머가 객체의 멤버들에게 접근 제한을 걸어주는데<br>
+이를 접근제한자 라고 부른다<br>
+
+객체지향에서 정보은닉 이라는 말이 있다 사용자가 굳이 알 필요가 없는 정보는 사용자로부터 숨겨주는 개념인데<br>
+사용자는 언제나 최소한 정보만으로 프로그램을 손쉽게 사용할 수 있게 해야 한다<br>
+
+자바에서는 이러한 정보은닉을 위해서 접근제한자를 제공하고 핵심은 클래스 외부에서의 직접적인 접근을<br>
+허용하지 않는 멤버를 설정하여 정보 은닉을 구체화 하는데 유용하다<br>
+
 접근제한자는 총 4가지 종류가 있다<br>
 
 - Public : 모든 접근을 허용
@@ -216,3 +226,118 @@ Phone 클래스에 접근하려면 필요한것이 무엇일까 ? 그럴려면 �
 - default : 같은 패키지 내에 있는 객체들만 허용된다
 - private : 현재 클래스 내에서만 허용한다
 
+
+<img src = "/post/Java/public.png"><br>
+<a href = "https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=0neslife&logNo=221542964491">이미지 출처 : 규공간</a><br>
+
+## Private 접근제어자
+
+- private 접근제어자를 사용하여 선언된 클래스 멤버는 외부에 공개되지 않고 직접 접근할 수 없다<br>
+
+- 자바 프로그램은 private 멤버에 직접 접근할 수 없으며 해당 객체의 Public 메소드를 통해서만 접근한다<br>
+
+- private 멤버는 public 인터페이스를 직접 구성하지 않으며 클래스 내부의 세부적인 동작을 구현하는데 사용한다<br>
+
+
+※ 다른패키지 안에 있는 일반 클래스 와 자식 클래스에서 접근할 수 없다<br>
+※ 같은 패키지 안에 있는 일반클래스 와 자식클래스 역시 접근할 수 없다<br>
+※ 오직 선언한 클래스 공간에서만 사용한다<br>
+
+```java
+
+public class Sample {
+    private String res = "나는 같은 클래스에서만 사용가능해";
+    
+    private String getPrint(){
+
+        return this.res;
+    }
+}
+
+```
+
+
+
+## Public 접근제어자
+
+- 선언된 클래스 멤버는 외부로 공개되며 해당 객체는 어디에서나 직접 접근이 가능하다
+
+- public 메소드를 통해서만 해당 객체의 private 멤버에 접근할 수 있다
+
+```java
+
+public class Sample {
+
+    public String res = "난 어디에서든 사용할 수 있어";
+
+    public String getPrint(){
+
+        return this.res;
+    }
+}
+```
+
+## Default 접근제어자
+
+- 자바에서는 클래스 와 멤버의 접근 제어의 기본값으로 디폴트 접근제어를 별도로 명시한다
+
+- 접근제어자가 지정되지 않으면 자동적으로 디폴트 접근제어를 가진다
+
+- 접근제어를 가지는 멤버는 같은 클래스의 멤버와 같은 패키지에 속하는 멤버만 접근할 수 있다
+
+※ 같은 패키지에 있는 일반 클래스 와 자식클래스는 접근이 가능하다는 것 다른 패키지에서는 접근 X<br>
+
+
+```java
+package test;
+
+public class Sample {
+
+    // 접근제어자를 명시해준 멤버필드
+    public  String a = "public 접근제어자";
+    private String b = "private 접근제어자";
+
+    // 접근제어자를 명시를 안해주면
+    // 자동으로 디폴트 제어를 가진다
+    String c = "default 접근제어자";
+
+    public static void main(String [] args) {
+        String res = "다른 패키지에는 접근할 수 없음";
+    }
+}
+```
+
+## Protected 접근제어자
+
+- protected 멤버에 접근할 수 있는 영역은 멤버를 선언한 클래스의 멤버이다
+
+- 멤버를 선언한 클래스가 속한 패키지의 멤버까지 허용한다
+
+- 상속받은 자식 클래스 와 다른 패키지 자식 클래스 포함이다
+
+```java
+
+package test;
+
+public class Sample {
+	
+	protected String a = "다른 패키지에 존재하는 자식 클래스까지만 허용";
+}
+```
+
+※ 같은 패키지는 접근 가능<br>
+
+```java
+package other;
+import test.Sample; // test 패키지의 Sample 클래스를 import 한다
+
+public class Child extends Sample {
+	
+	public static void main(String[] args) {
+		Child c = new Child();
+		System.out.println(c.a);
+	}
+}
+```
+
+※ 다른 패키지에 속하는 자식 클래스도 접근허용<br>
