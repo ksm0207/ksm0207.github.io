@@ -204,3 +204,167 @@ public class Ex2_String2 {
 
 - 반환형 : 포함하면 true 미포함 이면 false
 
+
+# 오후시간
+
+
+(1) 문제<br>
+
+```java
+package pm;
+
+import java.util.Scanner;
+
+public class Ex2_String {
+	public static void main(String[] args) {
+		
+		// 1. 키보드로 부터 한줄의 문자열을 입력받는다
+		// 2. 문자열 안에 숫자 이외의 값이 입력될 때는
+		// 3. "숫자외 다른 값을 입력하시면 안됩니다."
+		// 4. 숫자들로만 이루어졌다면 "정확한 입력값이 맞습니다 출력"
+		
+		Scanner scan = new Scanner(System.in);
+		String s = scan.nextLine();
+		String res  = "";
+		
+		for (int i = 0 ; i < s.length() ; i ++) {
+			char ch = s.charAt(i);
+	
+			if (ch >= 'a' || ch <= 'Z') {
+				res = "숫자 외 다른 값을 입력하시면 안됩니다.";
+				break;
+			}else{
+				res = "정확한 입력이 맞습니다";
+				break;
+			}
+		}
+		System.out.println(res);
+	}
+}
+```
+
+숫자 외의 다른 입력값을 받으면 안되고 숫자만 받을 수 있도록 하는 프로그램을 위 코드처럼 짜봤는데<br>
+강사님이 직접 짠 코드는 아래코드와 같다, 내가 더 많이 공부하고  좀 더 많이 노력해야겠다는 생각이들었다..<br>
+
+```java
+package pm;
+
+import java.util.Scanner;
+
+public class Ex2_String {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String str = scan.nextLine();
+	
+		int len = str.length();
+		boolean chk = false;
+		
+		for (int i = 0 ; i < len ; i ++) {
+			
+			char ch = str.charAt(i);
+			
+			// 숫자가 아닌 것을 가려낸다.
+			if (ch < '0' || ch > '9') {
+				// 숫자가 아닌 경우를 만났으니
+				// 더이상 반복문을 수행할 필요가 없다
+				chk = true;
+				break;
+				// 반복문을 최소화 시킨 방법
+			}
+		}
+		if (chk) {
+			System.out.println("잘못된 값 입니다");
+		}else {
+			System.out.println("정확한 입력입니다");
+		}
+	}
+		
+}
+```
+
+강사님이 구현한 코드는 반복문을 최소화를 해서 결과를 내신건데<br>
+아마 우리한테도 이런 방법도 있다 라는걸 알려주신 것 같았다<br>
+확실히 내가 구현한 코드는 if 문에서 많은 데이터를<br>
+하나씩 비교하다보니 돌아가긴해도 최소화 시키진 못한게 맞다<br>
+
+다시확인 해보는 내 코드 중 반복문 과 비교문<br>
+
+```java
+for (int i = 0 ; i < s.length() ; i ++) {
+    char ch = s.charAt(i);
+
+    if (ch >= 'a' || ch <= 'Z') {
+        res = "숫자 외 다른 값을 입력하시면 안됩니다.";
+        break;
+    }else{
+        res = "정확한 입력이 맞습니다";
+        break;
+    }
+}
+System.out.println(res);
+}
+```
+
+강사님 코드 <br>
+
+```java
+for (int i = 0 ; i < len ; i ++) {
+    char ch = str.charAt(i);
+    if (ch < '0' || ch > '9') {
+        chk = true;
+        break;
+    }
+}
+    if (chk) {
+        System.out.println("잘못된 값 입니다");
+    }else {
+        System.out.println("정확한 입력입니다");
+    }
+```
+
+
+
+## 배열
+
+- 자바에서는 배열을 객체로 인식한다.
+
+배열을 만들떄는 3가지가 있다<br>
+
+- (1) 배열선언
+
+```java
+int [] ar;
+```
+
+- (2) 배열생성
+
+```java
+ar = new int [3];
+```
+
+- (3) 배열 초기화
+
+```java
+ar[1] = 200;
+ar[0] = 100;
+ar[2] = 200;
+```
+
+위 그림을 표현하면 다음과 같다<br>
+
+<img src = "/post/Java/array1.png"><br>
+
+배열을 다음의 값으로 초기화를 해주었다<br>
+
+- ar[0] = 1000
+- ar[1] = 2000
+- ar[2] = 3000
+
+```java
+for (int i = 0 ; i < ar.length ; i ++) {
+    ar[i] = (i+1) * 1000;
+    System.out.println(ar[i]);
+}
+```
+(i+1) * 1000 이 부분으로 초기화 해준게 핵심이다..<br>
+※ 배열의 길이는 length 로 정해주는게 유지보수에 좋다고 하셨다<br>
