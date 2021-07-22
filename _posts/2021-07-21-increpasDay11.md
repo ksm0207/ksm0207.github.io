@@ -1,5 +1,5 @@
 ---
-title:  자바기반의 응용SW개발자 양성과정 11일차 - 클래스
+title:  자바기반의 응용SW개발자 양성과정 11일차 - String 과 배열
 author: Kim
 date: 2021-07-20 06:00:00 +0900
 categories : [Increpas]
