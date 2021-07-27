@@ -78,12 +78,12 @@ public class Ex1_Class {
 
 ## Ex1_Class 필요한 메소드 사용하기
 
-- 실행 클래스 : Ex1_Main
+- 실행 클래스 : Ex1_Class
 
 ```java
 package am;
 
-public class Ex1_Main {
+public class Ex1_Class {
 	
 	public static void main(String[] args) {
 		
@@ -259,6 +259,125 @@ System.out.println(ex1.getReturnValue());
 <img src = "/post/Java/cbr.png"><br>
 
 
+# 오후시간
 
+## 이어서 진행
 
+```java
+package pm;
 
+public class Ex3_Test {
+	
+	public void ex(int [] ar) {
+		
+		for (int i=0 ; i<ar.length ; i++) {
+			ar[i] = ar[i]+100;
+		}
+	}
+}
+```
+
+```java
+package pm;
+
+public class Ex3_Main {
+	public static void main(String[] args) {
+		
+		Ex3_Test ex3 = new Ex3_Test();
+		
+		int[] ar = new int[3];
+		
+		for (int i = 0 ; i < ar.length; i ++) {
+			ar[i] = i+1;
+		}
+		ex3.ex(ar);
+		
+		for (int i=0 ; i<ar.length; i++) {
+			System.out.println(ar[i]);
+		}
+	}
+}
+출력
+101
+102
+103
+```
+<img src = "/post/Java/cbr2.png"><br>
+
+※ 자바에서 인자를 전달할 때 자기가 기억하는 값을 복사해서 전달한다<br>
+
+## 실무에서 많이 사용하는 것
+```java
+package pm;
+
+public class Ex5_Data {
+
+	// 이름 전화번호
+	String name;
+	String phone;
+	
+	// name 이라는 변수의 값을 변경하는 동작
+	public void setName(String n) {
+		name = n;	
+	}
+	
+	// name 의 값을 반환하는 동작
+	public String getName() {
+		return name;
+	}
+	
+	// 전화번호를 변경하는 동작
+	public void setPhone(String p) {
+		phone = p;
+	}
+	
+	// 전화번호 반환하는 동작
+	public String getPhone() {
+		return phone;
+	}
+}
+```
+```java
+package pm;
+
+public class Ex5_Main {
+	
+	public void setData(Ex5_Data changeData) {
+		changeData.setName("Sungmin");
+		changeData.setPhone("010-5555-5555");
+	}
+	
+	public static void main(String[] args) {
+		
+		Ex5_Data data = new Ex5_Data();
+		
+		
+		String name = data.getName();
+		System.out.println("name : " + name);
+		
+		String phone = data.getName();
+		System.out.println("phone : " + phone);
+		
+		// 이제 원하는 이름과 전화번호로 변경
+		
+		data.setName("Kim");
+		data.setPhone("010-1234-5678");
+		
+		String name2 = data.getName();
+		System.out.println("name2 : " + name2);
+		
+		String phone2 = data.getPhone();
+		System.out.println("phone2 : " + phone2);
+		
+		Ex5_Main data_main = new Ex5_Main();
+		
+		data_main.setData(data);
+		
+		String name3 = data.getName();
+		System.out.println("name3 : " + name3);
+		
+		String phone3 = data.getPhone();
+		System.out.println("phone3 : " + phone3);
+	}
+}
+```
