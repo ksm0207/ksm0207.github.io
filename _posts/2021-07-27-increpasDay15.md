@@ -1,5 +1,5 @@
 ---
-title:  자바기반의 응용SW개발자 양성과정 15일차 - 클래스 연습하기
+title:  자바기반의 응용SW개발자 양성과정 15일차 - 클래스연습 + Call by value & reference
 author: Kim
 date: 2021-07-27 06:00:00 +0900
 categories : [Increpas]
