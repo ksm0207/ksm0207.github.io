@@ -4,7 +4,6 @@ author: Kim
 date: 2021-07-16 06:18:00 +0900
 categories : [Java]
 tags: [Java]
-pin: true
 ---
 
 # 자료형 개념
