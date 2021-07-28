@@ -15,8 +15,8 @@ pin: true
 개발자를 목수 라고 비유해보면 설계도면의 바탕이 되는 디자인을 보고 건물을 짓는데
 이때 완성된 건물을 보고 객체 라고 하는게 맞는 것 같다
 
-<a href="/posts/classFinal2/">클래스 정리 2부</a>
-
+<!-- <a href="/posts/classFinal2/">클래스 정리 2부</a> -->
+<!-- <a href="/posts/java03-example/">변수와 리터럴</a> -->
 
 ## 스타크래프트 - 배럭
 
