@@ -227,8 +227,198 @@ cup1 ~ cup3은 서로 주소값이 다르다는걸 잊지말자<br>
 ========================
 ```
 
-
-
-
-
 # 오후시간
+
+## 자판기 만들기
+
+오후에는 문제를 제시한 자판기를 만들어보는 시간을 가져봤다<br>
+
+여기서 내가 궁금했던것이 있었는데 바로 아래 사진부분을 의미한다<br>
+<img src ="/post/Java/img.png"><br>
+
+나는 총 MoneyCheck 와 ReturnMoney ... 네이밍 센스가 좀 없는 것 같긴하다..<br>
+본 목적은 클래스를 2개를 만들어서 나눠서 분리해보는 연습을 아직 가져보지않아서 작성을해봤는데<br>
+
+저렇게 객체를 전역으로 세워두면 괜찮을까 궁금했던 찰나에 강사님께서는 객체가 존재하는동안<br>
+정확한 값들을 저장하고 사용되어야 한다는 것이 주의점이 된다고하셔다<br>
+
+Menu 객체 같은경우 자판기의 아이템들이 존재하고 객체가 없어지기 전까지 항상 정확하고<br>
+예상해볼 수 있는 값들을 저장하도록 설계된 것 이라고 말씀해주셨다 즉 확실한 정보들만<br>
+정의해두는 것이 좋다는 것이다<br>
+
+직접 한번 만들어본 자판기 소스는 다음과같다<br>
+
+- Menu 클래스 - 자판기 아이템
+
+```java
+package example;
+
+public class Menu {
+	
+	String  menu;
+	String returnMoney;
+	int price;
+	
+	public String getMenu() {
+		return menu;
+	}
+	public void setMenu(String menu) {
+		this.menu = menu;
+	}
+	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+	public String getReturnMoney() {
+		return returnMoney;
+	}
+	public void setReturnMoney(String returnMoney) {
+		this.returnMoney = returnMoney;
+	}
+}
+```
+
+- VendingMachine 클래스 - 메인실행
+
+```java
+package example;
+
+import java.util.Scanner;
+
+public class VendingMachine{
+	public static void main(String[] args) {
+		
+		// 자판기 객체
+		VendingMachine vm = new VendingMachine();
+		// 입력 객체
+		Scanner scan = new Scanner(System.in);
+		// 금액 확인 체크 후 아이템 반환 하는 메소드
+		MoneyCheck money_check = new MoneyCheck();
+		// 전액 반환 해주는 메소드
+		ReturnMoney rt_money = new ReturnMoney();
+		
+		// 메뉴 호출
+		Menu [] menu = vm.start();
+		
+		int userMoney = 0;
+		System.out.println("무엇을 주문하시겠습니까 ?");
+		System.out.print("주문 번호 : ");
+		while(true){
+			try {
+				int userChoies = scan.nextInt() -1;
+				if (userMoney == 0) {
+					System.out.println("선택한 메뉴 : " + menu[userChoies].getMenu());
+					System.out.println("필요한 금액 : " + menu[userChoies].getPrice());
+					
+					System.out.println("금액을 충전해주세요.");
+					userMoney = scan.nextInt();
+					userMoney = money_check.checkItems(userMoney, userChoies, menu);
+				}
+				System.out.println("현재 가지고 있는 금액은 " + userMoney + " 원 입니다");
+				
+				if(userMoney > 0)
+					System.out.println("전액 반환 을 하시려면 5번을 눌러주세요");
+					userChoies = scan.nextInt();		
+					rt_money.returnChangeMoney(userMoney);
+					
+			}catch (Exception e) {
+					System.out.println("다시 입력해주세요.");
+					scan = new Scanner(System.in);
+			}
+		}
+	}
+	public Menu[] start() {
+		
+		Menu[] menu = new Menu[4];
+		System.out.println("자판기 테스트 !! ");
+		for (int i = 0 ; i < menu.length ; i ++) {
+			menu[i] = new Menu();
+			
+			switch (i) {
+			case 0:
+				menu[i].setMenu("레쓰비");
+				menu[i].setPrice(600);
+				break;
+			case 1:
+				menu[i].setMenu("사이다");
+				menu[i].setPrice(700);
+				break;
+			case 2:
+				menu[i].setMenu("콜라");
+				menu[i].setPrice(700);
+				break;
+			case 3:
+				menu[i].setMenu("게토레이");
+				menu[i].setPrice(900);
+				break;
+			}
+			System.out.println( (i+1) +"." +menu[i].getMenu() + "  " +  menu[i].getPrice());
+		} // end of for(1)
+		return menu;
+	}
+}	
+```
+
+- MoneyCheck 클래스 - 아이템 구매 및 금액 체크
+
+```java
+package example;
+
+import java.util.Scanner;
+
+public class MoneyCheck {
+	
+	// 금액 확인 후 아이템 반환 메소드
+	public int checkItems(int money , int userChoies , Menu[] menu) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		if ((money - menu[userChoies].getPrice()) >= 0) {
+			money = money - menu[userChoies].getPrice();
+			System.out.println("주문하신 " + menu[userChoies].getMenu() + " 나왔습니다 감사합니다 !");
+		}else {
+			System.out.println("잔액이 부족합니다");
+			System.out.println("부족한 금액을 채워주세요 :");
+			money += scan.nextInt();
+			money = money - menu[userChoies].getPrice();
+			System.out.println("주문하신 " + menu[userChoies].getMenu() + " 나왔습니다 감사합니다.");
+		} 
+		return money;
+	}
+}
+```
+
+- ReturnMoney 클래스 - 금액 반환하기
+
+```java
+package example;
+
+public class ReturnMoney {
+	
+	
+	// 전액 반환 메소드
+	public int returnChangeMoney(int u_money) {
+		
+		int [] money = {10000,5000,1000,500,100,50,10};
+		int remainMoney = 0;
+		
+		if (u_money == 0) {
+			System.out.println("반환하실 금액이 없습니다.");
+		}else {
+			for (int i=0 ; i <money.length; i ++) {
+				
+				if (u_money / money[i] > 0) {
+					System.out.println(money[i] + "원 " + u_money/money[i] + "개 반환하였습니다.");
+					u_money %=money[i];
+				}
+			}// end of for
+			System.out.println("자판기에 남은 돈 : " + remainMoney);
+		}
+		return u_money;
+	}
+}
+```
