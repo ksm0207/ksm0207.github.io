@@ -1,7 +1,7 @@
 ---
-title:  자바기반의 응용SW개발자 양성과정 16일차 - 
+title:  자바기반의 응용SW개발자 양성과정 16일차 - 클래스 연습 + 자판기 프로그램
 author: Kim
-date: 2021-07-27 06:00:00 +0900
+date: 2021-07-28 06:00:00 +0900
 categories : [Increpas]
 tags: [Increpas]
 ---
