@@ -157,4 +157,52 @@ public class Main {
 
 # 오후시간
 
+- 생성자
 
+생성자는 new 연산자를 통해 객체를 생성할 때 반드시 호출이 되고<br>
+생성자는 멤버 변수를 초기화하는 역할을 한다.<br>
+
+person[i] = new StudentVO(); 이것 역시 생성자를 호출한 것이다<br>
+
+기본생성자 구성은 다음과 같다<br>
+
+```java
+public 클래스명 () {}
+```
+
+사실 생성자는 우리가 직접 구현하지않아도 컴파일러가 알아서 기본생성자를<br>
+정의하도록 되어있다고 했다 학생관리 프로그램 구현중 조금 귀찮은 부분이 있다<br>
+
+```java
+for (int i=0; i<person.length; i++) {
+			person[i] = new StudentVO();
+			// StudentVO 내부에 있는 mvo에 저장해줄
+			// MajorVO객체의 주소를 준비한다
+			MajorVO mvo = new MajorVO();
+			person[i].setMvo(mvo);
+}
+```
+
+바로 이 부분이다 나한테는 가독성도 별로 안좋고 헷갈리게 할 만한 코드였다<br>
+
+위 와 같은 코드를 작성하지 않기위해선 StudentVO 클래스에서 다음과 같이 작업한다<br>
+
+```java
+public StudentVO() {
+    // StudentVO() 객체가 생성될 때 MajorVO() 객체도 같이 생성된다
+    mvo = new MajorVO();
+}
+```
+
+기본생성자를 내가 직접 만들고 안에는 MajorVO() 생성자를 만들어주는 것이다<br>
+이렇게보면 StudentVO() 클래스에 MajorVO() 주소값이 들어 가 있겠구나 라는걸<br>
+쉽게 알아볼 수 있을 것 같다<br>
+
+```java
+for (int i=0; i<person.length; i++) {
+			person[i] = new StudentVO();
+}
+```
+for문으로 객체화 시키는 작업 역시 가독성면에도 좋다고 생각되고<br>
+앞으로도 2개이상의 VO를 초기화 시켜야 할 일이있다면 생성자를 만들어서<br>
+아까같은 방법으로 초기화를 하는 방법을 쓸 것같다<br>
