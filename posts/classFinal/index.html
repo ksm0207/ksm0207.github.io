@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="ko-KR" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="generator" content="Jekyll v4.2.0" /><meta property="og:title" content="클래스 정리" /><meta name="author" content="Kim" /><meta property="og:locale" content="ko_KR" /><meta name="description" content="클래스와 객체" /><meta property="og:description" content="클래스와 객체" /><link rel="canonical" href="https://ksm0207.github.io/posts/classFinal/" /><meta property="og:url" content="https://ksm0207.github.io/posts/classFinal/" /><meta property="og:site_name" content="공부하고 기록하고" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2021-07-19T23:25:00+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="클래스 정리" /><meta name="twitter:site" content="@twitter_username" /><meta name="twitter:creator" content="@Kim" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"author":{"@type":"Person","name":"Kim"},"description":"클래스와 객체","url":"https://ksm0207.github.io/posts/classFinal/","headline":"클래스 정리","@type":"BlogPosting","dateModified":"2021-07-28T09:41:35+09:00","datePublished":"2021-07-19T23:25:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ksm0207.github.io/posts/classFinal/"},"@context":"https://schema.org"}</script><title>클래스 정리 | 공부하고 기록하고</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="공부하고 기록하고"><meta name="application-name" content="공부하고 기록하고"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="https://cdn.jsdelivr.net/combine/npm/lozad/dist/lozad.min.js,npm/magnific-popup@1/dist/jquery.magnific-popup.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id="></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ''); }); </script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src="https://img.freepik.com/free-vector/cute-turtle-work-on-laptop-illustration-turtle-mascot-cartoon-character-animal-isolated_138676-1047.jpg?size=338&ext=jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">공부하고 기록하고</a></div><div class="site-subtitle font-italic">영차 영차..</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center"> <a href="https://github.com/ksm0207" aria-label="github" class="order-3" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['example','doamin.com'].join('@')" aria-label="email" class="order-4" > <i class="fas fa-envelope"></i> </a> <span class="icon-border order-2"></span> <span id="mode-toggle-wrapper" class="order-1"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>클래스 정리</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>클래스 정리</h1><div class="post-meta text-muted d-flex flex-column"><div> <span class="semi-bold"> Kim </span> <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Mon, Jul 19, 2021, 11:25 PM +0900" prep="on" > Jul 19 <i class="unloaded">2021-07-19T23:25:00+09:00</i> </span></div><div> <span> <span class="timeago lastmod" data-toggle="tooltip" data-placement="bottom" title="Wed, Jul 28, 2021, 9:41 AM +0900" prefix="Updated " > Jul 28 <i class="unloaded">2021-07-28T09:41:35+09:00</i> </span> </span> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="3793 words">21 min</span></div></div><div class="post-content"><h1 id="클래스와-객체">클래스와 객체</h1><p>클래스의 기초적인 개념을 다시 한번 더 공부해보았는데 클래스를 설명할때 가장 적절한건 바로<br /> 건물을 지을때 필요한 설계도면이 가장 베스트 이지 않을까 싶었다<br /></p><p>개발자를 목수 라고 비유해보면 설계도면의 바탕이 되는 디자인을 보고 건물을 짓는데 이때 완성된 건물을 보고 객체 라고 하는게 맞는 것 같다</p><h2 id="스타크래프트---배럭">스타크래프트 - 배럭</h2><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/post/Java/obj.png" /><br /></p><p>위 사진은 미네랄 150이면 기초건물을 지을 수 있는 배럭이다 <br /> 내가 만약 현실 SCV가 되어서 배럭을 짓는다고 생각해보면 어떨까?<br /></p><p>배럭의 설계도면을 건네준 어떤 사람이 나한테 배럭을 지어달라고 요청하면 나는 이거대로<br /> 건물을 지어주면 끝나는 일 이라고 생각한다<br /></p><p>이렇게 건물이 모두 지어지면 건물의 위치를 나타내는 주소(Reference) 가 있는게 당연하고<br /> 주소를 통해 일정한 미네랄을 지불하여 마린 , 메딕 등을 뽑을수 있게된다<br /></p><p>똑같은 설계도면을 가지고 다른곳에 배럭을 여러개를 짓는다고 해볼까?<br /></p><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/post/Java/obj2.png" /><br /></p><p>위 사진을 보면 위치가 다르지만 똑같은 건물을 세웠다 하지만 모양만 같을 뿐<br /> 다른 객체이면서 각각 주소(Reference)가 있다는 것을 잘 알고있어야 한다<br /></p><p>※ 하나의 설계도면을 재사용하여 똑같은 건물이 서로 다른 위치에 각각 만들어져있다<br /> ※ 객체도 재사용이 가능하다<br /></p><h2 id="클래스---재사용성을-고려해야-하는-이유">클래스 - 재사용성을 고려해야 하는 이유</h2><p>클래스를 작성할 때 재사용성을 고려해야 한다고 한다 그 이유는 한번만 사용하고 버려지는 클래스는<br /> 시간낭비 자원낭비가 되기때문이다 따라서 클래스를 객체화 할땐<br /></p><p>적어도 다른 곳에서 또는 다른 응용프로그램에서도 필요에 따라 생성하고 사용할 수 있도록<br /> 재사용성과 이식성등을 고려하는게 맞다고 본다<br /></p><p>객체가 수행하는 능력이 뛰어나면 다른 곳에서도 뛰어난 객체를 사용하려는 횟수가 많아지는데<br /> 이렇게 재사용성을 목적으로 속성 - (자료) 과 동작 - (수행력) 을 하나의 객체로<br /></p><p>정의하는것 그리고 객체를 중심으로 이루어지는 설계가 객체지향 프로그래밍의 개념이 된다<br /></p><h1 id="클래스의-구조와-정의">클래스의 구조와 정의</h1><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/post/Java/class.png" /><br /></p><p>클래스 구조의 정의를 그림으로 그려봤다 여기서 멤버 필드와 멤버 메소드는 클래스 정의에 매우<br /> 중요한 부분이고 다음은 클래스 헤더부터 알아보자<br /></p><h2 id="클래스-헤더">클래스 헤더</h2><p>클래스 헤더는 클래스를 선언하는 부분을 의미한다 여기에는 class 라는 예약어를 중심으로 오른쪽에는<br /> 클래스명을 나타내고 왼쪽에는 <code class="language-plaintext highlighter-rouge">접근제한자</code> + <code class="language-plaintext highlighter-rouge">클래스의 형태 즉 종류</code> 를 나타내기도 한다<br /></p><ul><li><p>접근제한자 : 현재 클래스를 접근하여 생성하고 사용하는 데 있어 제한을 두겠다는 의미<br /></p><li><p>클래스종류 : final 클래스 혹은 추상 클래스와 같은 종류를 의미한다 어떤 클래스 인지<br /> 수식어의 일종이며 보통 우리가 생성하는 클래스는 일반클래스이다<br /></p><li><p>클래스명 : 말 그대로 클래스 이름을 의미하며 추가로 상속에 대한 정의 구현에 대한 정의 방법이 있다<br /> 상속은 부모클래스 자식클래스 개념이 있고 구현은 인터페이스 개념이 들어간다고 생각한다<br /></p></ul><p>클래스 헤더에 Example 이라는 클래스를 정의하면 다음과 같다<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Example</span> <span class="o">{</span>
+
+<span class="o">}</span>
+</pre></table></code></div></div><p>위 클래스는 접근제한 부분과 클래스 종류가 생략된 일반적인 방법이며 중괄호로 둘러싸인 부분은<br /> 클래스의 시작과 끝을 의미한다 이 안에서 멤버필드 와 생성자 그리고 멤버 메소드를 정의할 수 있다<br /></p><p>그럼 일반적인 클래스 안에 멤버 필드 생성자 멤버함수 세가지를 정의한다고 했는데 각각 무슨 의미를 가진걸까?<br /></p><h2 id="멤버필드">멤버필드</h2><p>변수와 상수 즉 자료형을 나타낸다 이건 객체가 만들어질 때 객체의 특징적인 속성을 담아둘 수있다<br /> 단 필드의 형태가 static 인지 인스턴스 인지 필드의 개념이 달라지게 된다<br /></p><ul><li>상수 : 프로그램이 종료될 때 까지 절대로 변하지 않는 값이며 생성할 때 대문자로 만든다<li>변수 : 상수와의 개념이 정 반대이다 프로그램이 종료될 동안 언제든지 값이 변경되는 값이다<br /></ul><p>멤버필드를 정의한다고 할땐 이렇게 사용하는것이 맞다<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Example</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></table></code></div></div><p>일반클래스 안에 멤버필드를 정의한 형태이고 하나의 클래스로 똑같은 객체가<br /> 여러 개 생성되었을 때 각각객체를 구별하는데 쓰인다<br /></p><h2 id="멤버메소드">멤버메소드</h2><p>메소드는 특정한 일을 동작하는 행위 라고 생각하면 쉽게 느껴진다<br /></p><ul><li>멤버필드들의 값을 가지고 작업을 수행한다<li>메소드도 static 메소드 인스턴스 메소드 두가지 종류로 나뉠 수 있다</ul><p>Static 메소드는 메소드를 가지는 객체를 생성하지 않아도 사용할 수 있는점이 있지만<br /> 인스턴스 메소드는 객체를 생성해야만 사용할 수 있는 조건이 있다<br /></p><p>멤버 메소드를 정의해보면 다음과 같다<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Example</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setData</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">){</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+
+        <span class="kt">void</span> <span class="o">:</span> <span class="n">반환하지않음</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><p>a 라는 멤버필드의 값을 매개변수 value 값으로 변경하는 형태의 동작을 정의한 메소드이다<br /> 이런 속성들과 동작들을 멤버라고 총칭 할 수 있다<br /></p><h2 id="클래스-정의">클래스 정의</h2><p>다음 조건을 보고 일상 생활에 있는 사물 중 자유롭게 클래스를 정의해보도록 하자<br /></p><ul><li>조건 1 : 클래스 명은 자유롭게 정한다<li>조건 2 : 속성 부분은 색상과 볼륨 동작을 기억하는 멤버 필드를 정의한다<li>조건 3 : 동작 부분은 볼륨 업 &amp; 다운 과 색상을 설정하는 메소드를 정의하자</ul><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Phone</span> <span class="o">{</span>
+	
+	<span class="c1">// 멤버 필드 정의</span>
+	<span class="nc">String</span> <span class="n">color</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">volume</span><span class="o">;</span>
+	
+    <span class="c1">// 멤버 메소드 정의</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setColor</span><span class="o">(</span><span class="nc">String</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// 컬러를 지정한다</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">col</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">volumeUp</span><span class="o">(</span><span class="kt">int</span> <span class="n">up</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// 볼륨을 올린다</span>
+        <span class="n">volume</span> <span class="o">+=</span> <span class="n">up</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">volumeDown</span><span class="o">(</span><span class="kt">int</span> <span class="n">down</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 볼륨을 내린다</span>
+		<span class="n">volume</span> <span class="o">-=</span> <span class="n">down</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><p>많이 생소한 부분이지만 클래스의 구조는 멤버라는것을 정의할 수 있다 라는것이 핵심이다<br /></p><h1 id="객체-생성-은-어떻게---멤버들은-어떻게-접근할까-">객체 생성 은 어떻게 ? 멤버들은 어떻게 접근할까 ?</h1><h2 id="객체-생성법">객체 생성법</h2><ul><li>클래스 타입의 레퍼런스 변수를 Stack 영역에 올라간다</ul><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="nc">Phone</span> <span class="n">phone</span><span class="o">;</span>
+</pre></table></code></div></div><p>이 방법은 아직 객체가 생성된 것은 아니다 단지 Phone 클래스 타입의 phone 이라는 참조 변수를<br /> Stack 영역에 등록되는 단계이다<br /></p><p>그 다음이 객체를 생성할때 사용하는 new 연산자를 통해 객체를 생성할 수 있다<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="nc">Phone</span> <span class="n">phone</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Phone</span><span class="o">();</span>
+</pre></table></code></div></div><p>new 연산자를 통해 메모리 내에 공간을 할당받고 Phone 클래스의 생성자를 통해 객체를 생성한 후<br /> 생성된 객체를 참조할 수 있는 참조변수를 phone 에 할당한 것이다<br /></p><p>※ 객체는 Heap 영역에 등록된다<br /> ※ 참조변수는 특정 주소값을 가지고 있으며 객체를 구분할 때 사용할 수 있는 주소번지와 같은 개념이다<br /> ※ phone 이 바로 참조변수를 의미하며 16진수인 값을 가지고 있다<br /></p><h2 id="멤버-접근법">멤버 접근법</h2><ul><li>멤버 접근에 대해서는 객체의 참조변수를 통해 ‘.’ 을 사용해서 접근할 수 있다<br /></ul><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="n">phone</span><span class="o">.</span><span class="na">volume</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>        <span class="c1">// 멤버변수 참조</span>
+<span class="n">phone</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="s">"Yellow"</span><span class="o">);</span> <span class="c1">// 멤버메소드 참조</span>
+</pre></table></code></div></div><p>이것을 통해 인자 값을 변수 와 메소드에 할당할 수 있다<br /> ※ phone 참조변수 : 멤버변수 와 멤버 메소드 에게 인자 값을 할당해주고 있다<br /></p><h2 id="메모리-공간--heap-영역과-stack-영역">메모리 공간 ? Heap 영역과 Stack 영역</h2><p>클래스를 통해 객체는 메모리 내에서 생성된다는 개념이있다 우선 메모리 공간은 크게 Stack 과 Heap 영역이 있다<br /></p><ul><li>Stack : 참조할 수 있는 변수와 같은 가벼운 것을 저장하는 영역이다<br /><li>Heap : 참조영역을 따로 가지고있고 객체와 같은 무거운것을 저장하는 공간이다<br /></ul><p>객체 생성을 하면 메모리 공간의 추상적(?) 구조는 다음과 같이 그려보았다<br /></p><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/post/Java/memory4.png" /><br /></p><p>위 그림과 같이 Heap 영역에는 필요에 따라 생성된 객체들이 존재한다<br /> Stack 영역의 가벼운 것들은 프로세서가 시작하고 끝날 때 자동적으로 JVM에 의해 생성 후<br /> 소멸되는 곳 이다 이들을 사용하려면 접근하는법을 알아야한다<br /></p><h1 id="접근제한자">접근제한자</h1><p>Phone 클래스에 접근하려면 필요한것이 무엇일까 ? 그럴려면 접근제한자 개념을 파악해볼 필요가 있다<br /></p><p>객체의 멤버들에게 접근을 제한할 수 있고 제한 속성에 따라 어떤 멤버에게는 접근을 허용하고<br /> 어떤 멤버에게는 접근을 제한한다면 정보에 대한 은닉성을 높여 정보의 유지를 고려하는 효과를 가질 수 있다<br /></p><p>멤버들은 객체 자신들만의 속성이자 특징을 가지고 있으므로 대외적으로 공개되는 것은 결코 좋은 방법이<br /> 아니라고 한다 . 이런 이유로 프로그래머가 객체의 멤버들에게 접근 제한을 걸어주는데<br /> 이를 접근제한자 라고 부른다<br /></p><p>객체지향에서 정보은닉 이라는 말이 있다 사용자가 굳이 알 필요가 없는 정보는 사용자로부터 숨겨주는 개념인데<br /> 사용자는 언제나 최소한 정보만으로 프로그램을 손쉽게 사용할 수 있게 해야 한다<br /></p><p>자바에서는 이러한 정보은닉을 위해서 접근제한자를 제공하고 핵심은 클래스 외부에서의 직접적인 접근을<br /> 허용하지 않는 멤버를 설정하여 정보 은닉을 구체화 하는데 유용하다<br /></p><p>접근제한자는 총 4가지 종류가 있다<br /></p><ul><li>Public : 모든 접근을 허용<li>Protected : 같은 패키지에 있는 객체와 상속관계의 객체들만 허용한다<li>default : 같은 패키지 내에 있는 객체들만 허용된다<li>private : 현재 클래스 내에서만 허용한다</ul><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/post/Java/public.png" /><br /> <a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=0neslife&amp;logNo=221542964491">이미지 출처 : 규공간</a><br /></p><h2 id="private-접근제어자">Private 접근제어자</h2><ul><li><p>private 접근제어자를 사용하여 선언된 클래스 멤버는 외부에 공개되지 않고 직접 접근할 수 없다<br /></p><li><p>자바 프로그램은 private 멤버에 직접 접근할 수 없으며 해당 객체의 Public 메소드를 통해서만 접근한다<br /></p><li><p>private 멤버는 public 인터페이스를 직접 구성하지 않으며 클래스 내부의 세부적인 동작을 구현하는데 사용한다<br /></p></ul><p>※ 다른패키지 안에 있는 일반 클래스 와 자식 클래스에서 접근할 수 없다<br /> ※ 같은 패키지 안에 있는 일반클래스 와 자식클래스 역시 접근할 수 없다<br /> ※ 오직 선언한 클래스 공간에서만 사용한다<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">res</span> <span class="o">=</span> <span class="s">"나는 같은 클래스에서만 사용가능해"</span><span class="o">;</span>
+    
+    <span class="kd">private</span> <span class="nc">String</span> <span class="nf">getPrint</span><span class="o">(){</span>
+
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">res</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</pre></table></code></div></div><h2 id="public-접근제어자">Public 접근제어자</h2><ul><li><p>선언된 클래스 멤버는 외부로 공개되며 해당 객체는 어디에서나 직접 접근이 가능하다</p><li><p>public 메소드를 통해서만 해당 객체의 private 멤버에 접근할 수 있다</p></ul><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">res</span> <span class="o">=</span> <span class="s">"난 어디에서든 사용할 수 있어"</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getPrint</span><span class="o">(){</span>
+
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">res</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h2 id="default-접근제어자">Default 접근제어자</h2><ul><li><p>자바에서는 클래스 와 멤버의 접근 제어의 기본값으로 디폴트 접근제어를 별도로 명시한다</p><li><p>접근제어자가 지정되지 않으면 자동적으로 디폴트 접근제어를 가진다</p><li><p>접근제어를 가지는 멤버는 같은 클래스의 멤버와 같은 패키지에 속하는 멤버만 접근할 수 있다</p></ul><p>※ 같은 패키지에 있는 일반 클래스 와 자식클래스는 접근이 가능하다는 것 다른 패키지에서는 접근 X<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">test</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span> <span class="o">{</span>
+
+    <span class="c1">// 접근제어자를 명시해준 멤버필드</span>
+    <span class="kd">public</span>  <span class="nc">String</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"public 접근제어자"</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">b</span> <span class="o">=</span> <span class="s">"private 접근제어자"</span><span class="o">;</span>
+
+    <span class="c1">// 접근제어자를 명시를 안해주면</span>
+    <span class="c1">// 자동으로 디폴트 제어를 가진다</span>
+    <span class="nc">String</span> <span class="n">c</span> <span class="o">=</span> <span class="s">"default 접근제어자"</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">res</span> <span class="o">=</span> <span class="s">"다른 패키지에는 접근할 수 없음"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h2 id="protected-접근제어자">Protected 접근제어자</h2><ul><li><p>protected 멤버에 접근할 수 있는 영역은 멤버를 선언한 클래스의 멤버이다</p><li><p>멤버를 선언한 클래스가 속한 패키지의 멤버까지 허용한다</p><li><p>상속받은 자식 클래스 와 다른 패키지 자식 클래스 포함이다</p></ul><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre>
+<span class="kn">package</span> <span class="nn">test</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span> <span class="o">{</span>
+	
+	<span class="kd">protected</span> <span class="nc">String</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"다른 패키지에 존재하는 자식 클래스까지만 허용"</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></table></code></div></div><p>※ 같은 패키지는 접근 가능<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">other</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">test.Sample</span><span class="o">;</span> <span class="c1">// test 패키지의 Sample 클래스를 import 한다</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Child</span> <span class="kd">extends</span> <span class="nc">Sample</span> <span class="o">{</span>
+	
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Child</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Child</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">a</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><p>※ 다른 패키지에 속하는 자식 클래스도 접근허용<br /></p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/java/'>Java</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/java/" class="post-tag no-text-decoration" >Java</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=클래스 정리 - 공부하고 기록하고&url=https://ksm0207.github.io/posts/classFinal/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=클래스 정리 - 공부하고 기록하고&u=https://ksm0207.github.io/posts/classFinal/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=클래스 정리 - 공부하고 기록하고&url=https://ksm0207.github.io/posts/classFinal/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/javascript01/">Script를 효율적으로 선언하는방법 - async & defer</a><li><a href="/posts/IOstream/">Java - I/O 파일 입출력 및 객체 직렬화</a><li><a href="/posts/Socket/">Socket 소켓 통신 및 네트워크 개념</a><li><a href="/posts/extends/">상속 파헤치기</a><li><a href="/posts/Super/">super & super()</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/java/">Java</a> <a class="post-tag" href="/tags/increpas/">Increpas</a> <a class="post-tag" href="/tags/baekjoon/">BaekJoon</a> <a class="post-tag" href="/tags/django/">Django</a> <a class="post-tag" href="/tags/oracle/">Oracle</a> <a class="post-tag" href="/tags/spring/">Spring</a> <a class="post-tag" href="/tags/sql/">SQL</a> <a class="post-tag" href="/tags/blogerror/">BlogError</a> <a class="post-tag" href="/tags/getting-started/">getting started</a> <a class="post-tag" href="/tags/javascript/">JavaScript</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/java01/"><div class="card-body"> <span class="timeago small" > Feb 26 <i class="unloaded">2021-02-26T01:50:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Java 01 - 자바 프로그래밍 기초(1) Hello World</h3><div class="text-muted small"><p> 프로그래밍 기초 주요 학습내용 (1) Hello 에제분석 (2) 기초 개념 - 순차적인 프로그램 작성 (3) 변수와 자료형 + 프로그램 작성 (4) 수식과 연산자 (5) 형변환 (6) 문자열 (7) 입력과 출력 (1) Hello 예제분석 - 첫 번째 프로그램 Hello World public class Hello { ...</p></div></div></a></div><div class="card"> <a href="/posts/Set/"><div class="card-body"> <span class="timeago small" > Aug 3 <i class="unloaded">2021-08-03T01:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Set 컬렉션 - HashSet 과 TreeSet</h3><div class="text-muted small"><p> HashSet HashSet 은 Set 컬렉션 클래스에서 많이 사용되는 것 중 하나이고 이 클래스의 특징은 해시 알고리즘을 사용하여 검색속도가 매우 빠르다는 점이 있다고 한다 HashSet 클래스는 내부적으로 HashMap 과 같은 인스턴스를 이용하여 요소를 저장하는데 순서에 상관없이 저장하며 중복된 값은 허용하지 않으며 저장하지 않는다 예제 (...</p></div></div></a></div><div class="card"> <a href="/posts/java02/"><div class="card-body"> <span class="timeago small" > Feb 26 <i class="unloaded">2021-02-26T02:09:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Java 01 - 자바 프로그래밍 기초(2) 기초개념</h3><div class="text-muted small"><p> 프로그래밍 기초 주요 학습내용 (1) Hello 에제분석 (2) 기초 개념 - 순차적인 프로그램 작성 (3) 변수와 자료형 + 프로그램 작성 (4) 수식과 연산자 (5) 형변환 (6) 문자열 (7) 입력과 출력 (2) 기초 개념 클래스 프로그래밍에서 말하는 클래스(class)는 건물을 지을때 설계도면이 필요하듯이 도...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/local&global/" class="btn btn-outline-primary" prompt="Older"><p>지역변수 전역변수 차이 + Static 변수</p></a> <a href="/posts/increpasDay10/" class="btn btn-outline-primary" prompt="Newer"><p>자바기반의 응용SW개발자 양성과정 10일차 - 제어문 마무리</p></a></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2021 <a href="https://twitter.com/username">Kim sung min</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/tags/java/">Java</a> <a class="post-tag" href="/tags/increpas/">Increpas</a> <a class="post-tag" href="/tags/baekjoon/">BaekJoon</a> <a class="post-tag" href="/tags/django/">Django</a> <a class="post-tag" href="/tags/oracle/">Oracle</a> <a class="post-tag" href="/tags/spring/">Spring</a> <a class="post-tag" href="/tags/sql/">SQL</a> <a class="post-tag" href="/tags/blogerror/">BlogError</a> <a class="post-tag" href="/tags/getting-started/">getting started</a> <a class="post-tag" href="/tags/javascript/">JavaScript</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://ksm0207.github.io{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script>

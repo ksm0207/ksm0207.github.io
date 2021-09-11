@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="ko-KR" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="generator" content="Jekyll v4.2.0" /><meta property="og:title" content="자바기반의 응용SW개발자 양성과정 3일차 - 서브쿼리 / Join" /><meta name="author" content="Kim" /><meta property="og:locale" content="ko_KR" /><meta name="description" content="서브쿼리 [SQL] 서브쿼리(참고사이트)" /><meta property="og:description" content="서브쿼리 [SQL] 서브쿼리(참고사이트)" /><link rel="canonical" href="https://ksm0207.github.io/posts/increpasDay3/" /><meta property="og:url" content="https://ksm0207.github.io/posts/increpasDay3/" /><meta property="og:site_name" content="공부하고 기록하고" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2021-07-09T22:00:00+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="자바기반의 응용SW개발자 양성과정 3일차 - 서브쿼리 / Join" /><meta name="twitter:site" content="@twitter_username" /><meta name="twitter:creator" content="@Kim" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"author":{"@type":"Person","name":"Kim"},"description":"서브쿼리 [SQL] 서브쿼리(참고사이트)","url":"https://ksm0207.github.io/posts/increpasDay3/","headline":"자바기반의 응용SW개발자 양성과정 3일차 - 서브쿼리 / Join","@type":"BlogPosting","dateModified":"2021-07-16T13:19:57+09:00","datePublished":"2021-07-09T22:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ksm0207.github.io/posts/increpasDay3/"},"@context":"https://schema.org"}</script><title>자바기반의 응용SW개발자 양성과정 3일차 - 서브쿼리 / Join | 공부하고 기록하고</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="공부하고 기록하고"><meta name="application-name" content="공부하고 기록하고"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="https://cdn.jsdelivr.net/combine/npm/lozad/dist/lozad.min.js,npm/magnific-popup@1/dist/jquery.magnific-popup.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id="></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ''); }); </script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src="https://img.freepik.com/free-vector/cute-turtle-work-on-laptop-illustration-turtle-mascot-cartoon-character-animal-isolated_138676-1047.jpg?size=338&ext=jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">공부하고 기록하고</a></div><div class="site-subtitle font-italic">영차 영차..</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center"> <a href="https://github.com/ksm0207" aria-label="github" class="order-3" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['example','doamin.com'].join('@')" aria-label="email" class="order-4" > <i class="fas fa-envelope"></i> </a> <span class="icon-border order-2"></span> <span id="mode-toggle-wrapper" class="order-1"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>자바기반의 응용SW개발자 양성과정 3일차 - 서브쿼리 / Join</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>자바기반의 응용SW개발자 양성과정 3일차 - 서브쿼리 / Join</h1><div class="post-meta text-muted d-flex flex-column"><div> <span class="semi-bold"> Kim </span> <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Fri, Jul 9, 2021, 10:00 PM +0900" prep="on" > Jul 9 <i class="unloaded">2021-07-09T22:00:00+09:00</i> </span></div><div> <span> <span class="timeago lastmod" data-toggle="tooltip" data-placement="bottom" title="Fri, Jul 16, 2021, 1:19 PM +0900" prefix="Updated " > Jul 16 <i class="unloaded">2021-07-16T13:19:57+09:00</i> </span> </span> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="3501 words">19 min</span></div></div><div class="post-content"><h1 id="서브쿼리">서브쿼리</h1><p><a href="https://jerryjerryjerry.tistory.com/m/54">[SQL] 서브쿼리(참고사이트)</a></p><p>서브쿼리는 SQL 문장 안에 <code class="language-plaintext highlighter-rouge">또 다른 SQL 문장이 포함된 것 </code> 입니다<br /> 최종 결과를 출력하는 쿼리를 <code class="language-plaintext highlighter-rouge">메인 쿼리</code> 라고 한다면 보조 역할을 하는<br /> SELECT문을 <code class="language-plaintext highlighter-rouge">서브 쿼리</code> 라고 정의할 수 있을 것 같습니다<br /></p><ul><li>하나의 SQL문을 기준으로 메인 쿼리를 제외한 모든 SELECT문은 서브쿼리<li>서브쿼리는 메인쿼리가 실행되기 <code class="language-plaintext highlighter-rouge">이전에</code> 한번만 실행됩니다.<li>여러 개 사용할 수 있습니다.</ul><p>서브쿼리 의 장점은 한번 읽어온 데이터를 메모리 안에서 가공하여 사용할 수 있도록<br /> 하는 것 이고 즉 , 동일한 데이터를 다시 한번 이용하여 복잡한 가공에도 물리적인<br /> <code class="language-plaintext highlighter-rouge">I/O</code> 를 줄여 줄 수 있습니다.<br /></p><p>※ I/O : 입 출력 의 약자이며 데이터를 전송하는 프로그램 , 장치를 일컫는말<br /> ※ (Input / Output)<br /></p><p>정리하면 DB에 여러 번 접속해야 하는 상황을 한번에 처리가 가능하고<br /> DB에 접속시도를 줄여 속도를 증가 시킬 수 있다.<br /></p><p>서브쿼리를 사용 할 수 있는 <code class="language-plaintext highlighter-rouge">사용 절</code> 은 다음과 같습니다<br /></p><ul><li>SELECT , FROM , WHERE 절 모두 사용가능 하다.<li>INSERT UPDATE DELETE 문에서도 사용 할 수 있다.<li>INSERT 구문에 경우 INTO , UPDATE 구문 중 SET 에 적용 할 수 있다.</ul><h1 id="서브쿼리-종류">서브쿼리 종류</h1><ul><li><ol><li>단일 행 서브쿼리 : 가장 기본적인 서브쿼리 이며 <code class="language-plaintext highlighter-rouge">=</code> 연산자를 사용합니다</ol><li><ol><li>다중 행 서브쿼리 : 서브쿼리에서 반환되는 결과 행이 <code class="language-plaintext highlighter-rouge">하나</code> 이상일 때<br /> 사용하고 다중 행 비교 연산자 사용이 가능합니다<br /></ol><li><ol><li>다중 컬럼 서브쿼리 : 하나 이상의 컬럼을 <code class="language-plaintext highlighter-rouge">메인쿼리 로 반환 합니다.</code><br /></ol><li><ol><li>상호관련 서브쿼리 : 서브쿼리 와 메인쿼리 간에 결과값을 서로 주고받는 식</ol></ul><h2 id="사용-시-주의사항">사용 시 주의사항</h2><ul><li>반드시 WHERE 절에 시작하고 , <code class="language-plaintext highlighter-rouge">비교연산자의 오른쪽에 위치해야 합니다.</code><br /><li>서브쿼리 문법 시작은 소괄호로 묶어서 사용합니다 <code class="language-plaintext highlighter-rouge">()</code><li>서브쿼리 절 안에는 <code class="language-plaintext highlighter-rouge">Order by</code> 절이 들어가면 안됩니다.</ul><h1 id="서브쿼리-간단히-실습해보기">서브쿼리 간단히 실습해보기</h1><ul><li>DB : Oracle , HR계정<li>테이블 : employees<li>조건 : 사원 이름이 Michael 이고 직종이 MK_MAN 인 사원의 급여보다<br /> <code class="language-plaintext highlighter-rouge">더 많이 받는</code> 사원들을 알아내기<br /><li>출력 : 사번 , 이름 , 직종 , 급여 순으로 출력<br /></ul><p>(1) 먼저 사원의 이름을 찾고 직종도 찾아 급여를 알아냅니다.<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">first_name</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">job_id</span>
+<span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="no">WHERE</span> <span class="n">first_name</span> <span class="o">=</span> <span class="err">'</span><span class="nc">Michael</span><span class="err">'</span> <span class="no">AND</span> <span class="n">job_id</span> <span class="o">=</span> <span class="err">'</span><span class="no">MK_MAN</span><span class="err">'</span><span class="o">;</span>
+
+<span class="n">결과</span>
+<span class="no">FIRST_NAME</span>	<span class="no">SALARY</span>	<span class="no">JOB_ID</span>
+<span class="nc">Michael</span>	    <span class="mi">13000</span>	<span class="no">MK_MAN</span>
+</pre></table></code></div></div><p>(2) 결과를 알아냈으니 급여가 13000 보다 큰 직원들은 누가 있을까요?<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">,</span>  <span class="n">e</span><span class="o">.</span><span class="na">first_name</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">job_id</span>
+<span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span> <span class="o">&gt;</span> <span class="mi">13000</span><span class="o">;</span>
+
+<span class="n">결과</span>
+
+<span class="no">EMPLOYEE_ID</span>	 <span class="no">FIRST_NAME</span>	<span class="no">SALARY</span>	<span class="no">JOB_ID</span>
+<span class="mi">100</span>	          <span class="nc">Steven</span>	<span class="mi">24000</span>	<span class="no">AD_PRES</span>
+<span class="mi">101</span>	          <span class="nc">Neena</span>	    <span class="mi">17000</span>	<span class="no">AD_VP</span>
+<span class="mi">102</span>	          <span class="nc">Lex</span>	    <span class="mi">17000</span>	<span class="no">AD_VP</span>
+<span class="mi">145</span>	          <span class="nc">John</span>	    <span class="mi">14000</span>	<span class="no">SA_MAN</span>
+<span class="mi">146</span>	          <span class="nc">Karen</span>	    <span class="mi">13500</span>	<span class="no">SA_MAN</span>
+</pre></table></code></div></div><p>(1) , (2) 는 각각 한번씩 두번을 DB에 접속한 경우이므로 이것을 서브쿼리로<br /></p><p>데이터를 처리해준 코드입니다.<br /></p><ul><li>SELECT , FROM , WHERE 절 모두 사용가능 하다.</ul><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">first_name</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">job_id</span>
+<span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span>  <span class="err">★</span> <span class="err">▲</span> <span class="n">메인쿼리</span> <span class="n">실행</span> <span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+                  <span class="err">★</span> <span class="err">▼</span> <span class="n">서브쿼리</span> <span class="n">실행</span> <span class="o">(</span><span class="mi">2</span><span class="o">)</span> 
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span> <span class="o">&gt;</span>  <span class="o">(</span><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span> <span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">first_name</span> <span class="o">=</span> <span class="err">'</span><span class="nc">Michael</span><span class="err">'</span> <span class="no">AND</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span> <span class="o">=</span> <span class="mi">13000</span><span class="o">);</span>
+
+<span class="n">결과</span>
+
+<span class="no">EMPLOYEE_ID</span>	 <span class="no">FIRST_NAME</span>	<span class="no">SALARY</span>	<span class="no">JOB_ID</span>
+<span class="mi">100</span>	          <span class="nc">Steven</span>	<span class="mi">24000</span>	<span class="no">AD_PRES</span>
+<span class="mi">101</span>	          <span class="nc">Neena</span>	    <span class="mi">17000</span>	<span class="no">AD_VP</span>
+<span class="mi">102</span>	          <span class="nc">Lex</span>	    <span class="mi">17000</span>	<span class="no">AD_VP</span>
+<span class="mi">145</span>	          <span class="nc">John</span>	    <span class="mi">14000</span>	<span class="no">SA_MAN</span>
+<span class="mi">146</span>	          <span class="nc">Karen</span>	    <span class="mi">13500</span>	<span class="no">SA_MAN</span>
+</pre></table></code></div></div><p>메인쿼리 , 서브쿼리 모두 독립적인 실행이라고 봐도 무방 할 것 같습니다.<br /></p><p>다음문제<br /></p><ul><li>DB : Oracle , HR계정<li>테이블 : employees<li><p>조건 : 사번이 111번인 사원의 직종과 같고 , 159번 사원의 급여보다<br /> <code class="language-plaintext highlighter-rouge">더 많이 받는</code> 사원을 찾아내기</p><li>출력 : 사번 , 이름 , 직종 , 입사일 , 급여 순으로 출력하기 <br /></ul><p>(1) 먼저 111번의 사원의 직종이 무엇인지 알아냅니다.</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre>
+<span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">job_id</span>
+<span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">=</span> <span class="mi">111</span><span class="o">;</span>
+
+<span class="n">결과</span>
+
+<span class="no">EMPLOYEE_ID</span>	  <span class="no">JOB_ID</span>
+     <span class="mi">111</span>	<span class="no">FI_ACCOUNT</span>
+</pre></table></code></div></div><p>(2) 159번 사원의 급여를 알아볼까요 ?<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">job_id</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span>
+<span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">=</span> <span class="mi">159</span><span class="o">;</span>
+
+<span class="n">결과</span>
+
+<span class="no">EMPLOYEE_ID</span>	  <span class="no">JOB_ID</span>	<span class="no">SALARY</span>
+     <span class="mi">159</span>	  <span class="no">SA_REP</span>	 <span class="mi">8000</span>
+</pre></table></code></div></div><p>(3) 각각 결과를 알아냈으니 , 이번에도 서브쿼리로 처리한 코드 입니다.<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">first_name</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">job_id</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">hire_date</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span>
+<span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="no">WHERE</span> <span class="n">job_id</span> <span class="o">=</span> <span class="o">(</span><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">job_id</span> <span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">=</span> <span class="mi">111</span><span class="o">)</span> <span class="no">AND</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span> <span class="o">&gt;</span> <span class="o">(</span><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span> <span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">=</span> <span class="mi">159</span><span class="o">);</span>
+
+<span class="n">결과</span>
+
+<span class="no">EMPLOYEE_ID</span>	 <span class="no">FIRST_NAME</span>	  <span class="no">JOB_ID</span>	<span class="no">HIRE_DATE</span>  <span class="no">SALARY</span>
+<span class="mi">109</span>	          <span class="nc">Daniel</span>	<span class="no">FI_ACCOUNT</span>	<span class="mi">94</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">16</span>	<span class="mi">9000</span>
+<span class="mi">110</span>	          <span class="nc">John</span>	    <span class="no">FI_ACCOUNT</span>	<span class="mi">97</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">28</span>	<span class="mi">8200</span>
+</pre></table></code></div></div><p>(1) 첫번째 서브쿼리</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="o">(</span><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">job_id</span> <span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">=</span> <span class="mi">111</span><span class="o">)</span>
+
+<span class="nc">Employees</span> <span class="n">테이블에서</span> <span class="n">사원</span> <span class="n">번호가</span> <span class="mi">111</span> <span class="n">번인</span> <span class="n">직종을</span> <span class="n">찾아주기</span>
+</pre></table></code></div></div><p>(2) 두번째 서브쿼리</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre><span class="no">AND</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span> <span class="o">&gt;</span> <span class="mi">159</span><span class="n">번의</span> <span class="n">급여보다</span> <span class="n">더</span> <span class="n">받는</span> <span class="n">사람을</span> <span class="n">찾기위한</span> <span class="n">조건식</span>
+
+<span class="o">(</span><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">salary</span> <span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">=</span> <span class="mi">159</span><span class="o">)</span>
+
+<span class="n">사원</span> <span class="n">번호</span> <span class="mi">159</span><span class="n">번의</span> <span class="n">급여를</span> <span class="n">찾아주기</span>
+</pre></table></code></div></div><p>서브쿼리를 사용할 땐 개인코딩법 마다 달라지겠지만 , 중요한건 문제를 단계별로<br /> 분석하여 하나씩 접근 해줘야 마지막에 서브쿼리를 만드는데 큰 어려움이 없을 것 같습니다.<br /></p><h1 id="다양한-예제로-서브쿼리-활용하기">다양한 예제로 서브쿼리 활용하기</h1><ul><li><p>새로 생성한 테이블 명 : Test <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/post/Oracle/new_table.png" /><br /></p><li>DB : Oracle , HR계정<li>테이블 : Test<li>조건 : 키가 200보다 작은 사람들 찾기<li>출력 : 번호 , 이름 , 키 순으로 출력<br /></ul><p>(1) 먼저 키가 200보다 작은 사람들을 출력하기</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="c1">// 키가 200보다 작은 사람 찾고 , 번호 , 이름 , 키 순으로 출력</span>
+
+<span class="no">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="na">num_id</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">name</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span>
+<span class="no">FROM</span> <span class="nc">Test</span> <span class="n">t</span>
+<span class="no">WHERE</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="o">;</span>
+</pre></table></code></div></div><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/post/Oracle/new_table_example2.png" /><br /></p><p>(2) 이름이 ‘Kim’ 인 사람의 키보다 작은 사람들 출력하기 서브쿼리 활용</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="na">num_id</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">name</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span>
+<span class="no">FROM</span> <span class="nc">Test</span> <span class="n">t</span>
+<span class="no">WHERE</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="o">&lt;</span> <span class="o">(</span><span class="no">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="no">FROM</span> <span class="nc">Test</span> <span class="n">t</span> <span class="no">WHERE</span> <span class="n">t</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="err">'</span><span class="nc">Kim</span><span class="err">'</span><span class="o">)</span>
+</pre></table></code></div></div><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/post/Oracle/new_table_example.png" /><br /></p><h1 id="서브쿼리---any--all">서브쿼리 - ANY , ALL</h1><ul><li>ANY</ul><p>ANY 는 <code class="language-plaintext highlighter-rouge">서브쿼리의 여러 개의 결과 중 한 가지만 만족합니다</code><br /> ※ SQL 연산자 종류 중 OR 와 같이 하나의 조건이 맞다면 출력 할 수 있습니다<br /></p><p>ANY 의 기본 형태는 다음 과 같습니다<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">col_name1</span> <span class="o">,</span> <span class="n">col_name2</span> <span class="no">FROM</span> <span class="n">테이블이름</span>
+<span class="no">WHERE</span> <span class="n">col_name</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="no">ANY</span> <span class="o">(</span><span class="no">SELECT</span> <span class="n">col_name2</span>
+<span class="no">FROM</span> <span class="n">테이블이름</span> <span class="no">WHERE</span> <span class="n">조건식</span><span class="o">)</span>
+</pre></table></code></div></div><p>서브쿼리 시작 시 ANY () 소괄호로 묶고 시작 할 수 있습니다<br /></p><ul><li><p>ANY 예제</p><li>DB : Oracle , HR계정<li>테이블 : Test<li>조건 : <code class="language-plaintext highlighter-rouge">주소가 인천인 사람들의 키보다 크거나 같은 경우</code><li>출력 : 번호 , 이름 , 키 , 주소 순으로 출력<br /></ul><p>(1) 근무지가 ‘인천’ 인 사람들 찾는다.<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="na">num_id</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">name</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">addr</span>
+<span class="no">FROM</span> <span class="nc">Test</span> <span class="n">t</span>
+<span class="no">WHERE</span> <span class="n">t</span><span class="o">.</span><span class="na">addr</span> <span class="o">=</span> <span class="err">'</span><span class="n">인천</span><span class="err">'</span><span class="o">;</span>
+</pre></table></code></div></div><p>(2) ‘인천’ 인 사람들의 키보다 크거나 같은 인원을 출력한다 - 서브쿼리 &amp; ANY</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="na">num_id</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">name</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">addr</span>
+<span class="no">FROM</span> <span class="nc">Test</span> <span class="n">t</span>
+<span class="no">WHERE</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="o">&gt;=</span> <span class="no">ANY</span> <span class="o">(</span><span class="no">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="no">FROM</span> <span class="nc">Test</span> <span class="n">t</span> <span class="no">WHERE</span> <span class="n">t</span><span class="o">.</span><span class="na">addr</span><span class="o">=</span><span class="err">'</span><span class="n">인천</span><span class="err">'</span><span class="o">);</span>
+</pre></table></code></div></div><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/post/Oracle/any.png" /><br /></p><p>※ ‘인천’ 인 사람은 Seo 이고 ANY 조건은 Seo 보다 키가 크거나 Kim 보다 키가 크면 출력 됩니다<br /></p><ul><li>ALL</ul><p>ALL은 서브쿼리의 여러 개의 결과를 모두 만족할 때 사용 할 수 있습니다<br /> ※ AND 연산자와 같이 모든 조건이 만족해야만 합니다<br /></p><p>ALL 의 기본 형태는 다음 과 같습니다<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">col_name1</span> <span class="o">,</span> <span class="n">col_name2</span> <span class="no">FROM</span> <span class="n">테이블이름</span>
+<span class="no">WHERE</span> <span class="n">col_name</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="no">ANY</span> <span class="o">(</span><span class="no">SELECT</span> <span class="n">col_name2</span>
+<span class="no">FROM</span> <span class="n">테이블이름</span> <span class="no">WHERE</span> <span class="n">조건식</span><span class="o">)</span>
+</pre></table></code></div></div><ul><li><p>ALL 예제</p><li>DB : Oracle , HR계정<li>테이블 : Test<li>조건 : <code class="language-plaintext highlighter-rouge">주소가 IT 인 사람들의 키보다 작은 경우를 찾는다.</code><li>출력 : 번호 , 이름 , 키 , 주소 순으로 출력<br /></ul><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre>
+<span class="no">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="na">num_id</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">name</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">addr</span>
+<span class="no">FROM</span> <span class="nc">Test</span> <span class="n">t</span>
+<span class="no">WHERE</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="o">&lt;</span> <span class="no">ALL</span> <span class="o">(</span><span class="no">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="no">FROM</span> <span class="nc">Test</span> <span class="n">t</span> <span class="no">WHERE</span> <span class="n">t</span><span class="o">.</span><span class="na">addr</span> <span class="o">=</span> <span class="err">'</span><span class="no">IT</span><span class="err">'</span><span class="o">);</span>
+</pre></table></code></div></div><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/post/Oracle/all.png" /><br /></p><p>주소가 IT 인 사람은 Admin 이며 ALL 조건은 Admin 보다 키가 작은 사람들이 출력 됩니다<br /></p><h2 id="문제">문제<br /></h2><ul><li>DB : Oracle , HR계정<li>테이블 : Test<li>조건 : 주소가 여의도 인 사람들 중 키가 가장 작은 값 보다 큰 키를 가진 사람은?<li>조건2 : 내림차순으로 정렬하고 ANY 와 MIN을 사용하여 출력 해 주세요.<li>출력 : 번호 , 이름 , 키 , 주소 순으로 출력<br /></ul><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="na">num_id</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">name</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">addr</span>
+<span class="no">FROM</span> <span class="nc">Test</span> <span class="n">t</span>
+<span class="no">WHERE</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="o">&gt;</span> <span class="no">ANY</span> <span class="o">(</span><span class="no">SELECT</span> <span class="nf">min</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">height</span><span class="o">)</span> <span class="no">FROM</span> <span class="nc">Test</span> <span class="n">t</span> <span class="no">WHERE</span> <span class="n">t</span><span class="o">.</span><span class="na">addr</span><span class="o">=</span><span class="err">'</span><span class="n">여의도</span><span class="err">'</span><span class="o">)</span>
+<span class="no">ORDER</span> <span class="no">BY</span> <span class="n">t</span><span class="o">.</span><span class="na">height</span> <span class="n">desc</span><span class="o">;</span>
+</pre></table></code></div></div><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/post/Oracle/any2.png" /><br /></p><h1 id="join">Join</h1><p>조인은 <code class="language-plaintext highlighter-rouge">관계형 데이터베이스</code> 에서 <code class="language-plaintext highlighter-rouge">A 테이블</code> 과 <code class="language-plaintext highlighter-rouge">B 테이블</code> 간의<br /> <code class="language-plaintext highlighter-rouge">연결성을 의미합니다</code> 또한 <code class="language-plaintext highlighter-rouge">기본키 / 외래키</code> 활용도 유무를 따르며<br /></p><p>※ Key : <code class="language-plaintext highlighter-rouge">기본키 Primary Key</code> 와 참조키(외래키) <code class="language-plaintext highlighter-rouge">Foreign Key</code> 가 있습니다<br /></p><p>하나의 테이블에서 여러 테이블을 한꺼번에 볼 수 있는 방법 이라 생각됩니다.<br /></p><p>※ <code class="language-plaintext highlighter-rouge">두개 이상의 테이블을 서러묶어서 하나의 결과 집합으로 만들 수 있는 기술</code><br /> ※ 두 테이블을 묶어서 추출된 결과를 새로운 테이블을 만들어 집어 넣어 보여주는 형식<br /> 이때 새로운 테이블은 데이터베이스에 저장<br /></p><h1 id="join-은-왜-필요하고-왜-쓰는-것-일까">Join 은 왜 필요하고 왜 쓰는 것 일까?</h1><p>만약에 헬스 회원 관리 프로그램이 있다고 가정 해 보겠습니다<br /></p><p><code class="language-plaintext highlighter-rouge">A 테이블 에는 회원 테이블</code> 이 있고 <code class="language-plaintext highlighter-rouge">B 테이블에는 예약 테이블</code> 이 있는데<br /> 서로 Relationship (관계) 를 맺고 있을때 반드시 두개의 테이블을 조합해서만<br /> 원하는 정보를 얻어야 하는 <code class="language-plaintext highlighter-rouge">상황</code> 이 왔을 때 사용합니다<br /></p><p>※ 경우에 따라 C 테이블 , D 테이블 등 필요한 조건에 따라 늘어 날 수 있습니다<br /></p><p>이때 , 두 테이블 모두 각각 검색해서 정보를 도출해야하는데 결국은 조회를 2번이나<br /> 해야한다는 뜻이 되는데요 , 하지만 Join을 사용하면 2번 조회를 거칠 필요 없이<br /> 단 한번만 검색해서 정보를 알 수 있게 됩니다<br /></p><p>즉 두 테이블을 한번에 묶어 보여주기 위해 Join을 사용하고 두개 이상의 테이블을<br /> 결합하여 원하는 결과를 얻기 위한 기술이라고 정리하면 될 것 같습니다<br /></p><p>Join 종류는 다음 과 같습니다<br /></p><ul><li><p>(1) InnerJoin : 조인 조건이 정확히 일치하는 경우 사용합니다<br /></p><li><p>(2) OuterJoin : 조인 조건이 정확히 일치하는 <code class="language-plaintext highlighter-rouge">행</code> 과<br /> <code class="language-plaintext highlighter-rouge">일치하지 않은 모든 행들을 알고 싶을 때</code> 활용하는 방법<br /></p><li><p>(3) SelfJoin : 하나의 테이블에서 <code class="language-plaintext highlighter-rouge">특정 컬럼과 연결성을 가지는 경우</code></p><li><p>더 많은 종류가 있으면 추가할것 .</p></ul><h1 id="inner-join">Inner Join</h1><ul><li><p>Inner Join 은 내부조인 이라 부르며 , 조인 기술 중에서 가장 많이 사용되는 조인 입니다<br /> ※ 일반적으로 Join ! 이라고 하면 내부조인 입니다.<br /></p><li><p>각 테이블의 기본키와 참조키를 구분하여 사용해야 합니다.</p></ul><h2 id="inner-join-실습코드">Inner Join 실습코드</h2><ul><li>DB : Oracle , HR계정<li>테이블 : employees , departments<li>조건 : 각 <code class="language-plaintext highlighter-rouge">사원들</code> 의 <code class="language-plaintext highlighter-rouge">부서코드</code> 로 부서명을 알아내기<li>출력 : 사원번호 , 이름 순으로 출력하기<br /></ul><p>(1) 시작하기전 , 오류코드 부터 알고 들어가기<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">employee_id</span> <span class="o">,</span> <span class="n">first_name</span> <span class="o">,</span> <span class="n">department_id</span> <span class="o">,</span> <span class="n">department_name</span>
+<span class="no">FROM</span> <span class="n">employees</span> <span class="o">,</span> <span class="n">departments</span>
+<span class="no">WHERE</span> <span class="n">employees</span><span class="o">.</span><span class="na">department_id</span> <span class="o">=</span> <span class="n">departments</span><span class="o">.</span><span class="na">department_id</span><span class="o">;</span>
+
+<span class="n">결과</span>
+
+<span class="no">ORA</span><span class="o">-</span><span class="mo">00</span><span class="mi">918</span><span class="o">:</span> <span class="n">열의</span> <span class="n">정의가</span> <span class="n">애매합니다</span>
+</pre></table></code></div></div><p>오류가 일어나는 부분은 department_id 에서 일어났습니다 그 이유는 <br /> Employees , Departments 테이블 모두 가지고 있는 컬럼이기 때문에 Oracle 입장에서는<br /></p><p>어느 테이블에서 department_id 값을 가져올지를 판단하지 못해 발생한 오류입니다<br /> 그렇다면 수정할 곳은 컬럼명 앞에 사용자가 원하는 테이블명을 기술할 수도 있습니다<br /></p><p>(2) 수정 한 코드 (InnerJoin 적용)<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">first_name</span><span class="o">,</span> <span class="n">d</span><span class="o">.</span><span class="na">department_id</span><span class="o">,</span> <span class="n">d</span><span class="o">.</span><span class="na">department_name</span>
+<span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span><span class="o">,</span> <span class="n">departments</span> <span class="n">d</span>
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">department_id</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="na">department_id</span><span class="o">;</span>
+
+<span class="err">※</span> <span class="n">프로그래밍에서</span> <span class="n">사용하는</span> <span class="o">.</span> <span class="n">연산자로</span> <span class="n">구분지어</span> <span class="n">값을</span> <span class="n">추출</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다는</span> <span class="n">것을</span> <span class="n">알게됨</span><span class="o">..</span>
+</pre></table></code></div></div><p>(3) 위 문제를 서브쿼리로 풀어본다면?</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre><td class="rouge-code"><pre>
+<span class="no">SELECT</span> <span class="n">e</span><span class="o">.*</span> <span class="o">,</span> <span class="n">d</span><span class="o">.</span><span class="na">department_name</span>
+
+<span class="nf">FROM</span> <span class="o">(</span><span class="no">SELECT</span> <span class="n">employee_id</span> <span class="o">,</span> <span class="n">first_name</span> <span class="o">,</span> <span class="n">job_id</span> <span class="o">,</span> <span class="n">department_id</span> <span class="no">FROM</span> <span class="n">employees</span><span class="o">)</span><span class="n">e</span><span class="o">,</span>
+
+<span class="o">(</span><span class="no">SELECT</span> <span class="n">department_id</span> <span class="o">,</span> <span class="n">department_name</span> <span class="no">FROM</span> <span class="n">departments</span> <span class="n">d</span> <span class="o">)</span><span class="n">d</span>
+
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">department_id</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="na">department_id</span><span class="o">;</span>
+<span class="o">========================================</span>
+
+<span class="o">(</span><span class="mi">1</span> <span class="o">)</span> <span class="n">employees</span> <span class="n">의</span> <span class="n">모든</span> <span class="n">컬럼명</span> <span class="o">,</span> <span class="n">departments</span> <span class="n">의</span> <span class="n">name</span> <span class="n">을</span> <span class="n">조회</span>
+<span class="no">SELECT</span> <span class="n">e</span><span class="o">.*</span> <span class="o">,</span> <span class="n">d</span><span class="o">.</span><span class="na">department_name</span>
+
+<span class="o">(</span><span class="mi">2</span><span class="o">)</span> <span class="n">첫번째</span> <span class="n">서브쿼리</span> <span class="o">,</span> <span class="n">employees</span> <span class="n">테이블에</span> <span class="n">각</span> <span class="n">컬럼명을</span> <span class="n">조회</span>
+<span class="no">FROM</span> <span class="o">(</span><span class="no">SELECT</span> <span class="n">employee_id</span> <span class="o">,</span> <span class="n">first_name</span> <span class="o">,</span> <span class="n">job_id</span> <span class="o">,</span> <span class="n">department_id</span> <span class="no">FROM</span> <span class="n">employees</span><span class="o">)</span><span class="n">e</span><span class="o">,</span>
+
+<span class="o">(</span><span class="mi">3</span><span class="o">)</span> <span class="n">두번째</span> <span class="n">서브쿼리</span> <span class="o">,</span> <span class="n">departments</span> <span class="n">테이블에</span> <span class="n">각</span> <span class="n">컬럼명</span> <span class="n">조회</span>
+<span class="o">(</span><span class="no">SELECT</span> <span class="n">department_id</span> <span class="o">,</span> <span class="n">department_name</span> <span class="no">FROM</span> <span class="n">departments</span> <span class="n">d</span> <span class="o">)</span><span class="n">d</span>
+
+<span class="o">(</span><span class="mi">4</span><span class="o">)</span> <span class="n">조건</span> <span class="o">:</span> <span class="n">employees</span> <span class="n">테이블의</span> <span class="n">department_id</span> <span class="n">가</span> <span class="n">department</span> <span class="n">테이블</span> <span class="n">id가</span> <span class="n">같은지</span> <span class="n">확인</span>
+</pre></table></code></div></div><p>위 문제대로 내가 알던 서브쿼리 작성문<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="na">employee_id</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">first_name</span> <span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">job_id</span> <span class="o">,</span> <span class="n">d</span><span class="o">.</span><span class="na">department_id</span> <span class="o">,</span> <span class="n">d</span><span class="o">.</span><span class="na">department_name</span>
+
+<span class="no">FROM</span> <span class="n">employees</span> <span class="n">e</span> <span class="o">,</span> <span class="n">departments</span> <span class="n">d</span>
+
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">department_id</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="na">department_id</span><span class="o">;</span>
+</pre></table></code></div></div><p>InnerJoin 을 사용 후 서브쿼리 작성문<br /></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="no">SELECT</span> <span class="n">e</span><span class="o">.*</span> <span class="o">,</span> <span class="n">d</span><span class="o">.</span><span class="na">department_name</span>
+
+<span class="nf">FROM</span> <span class="o">(</span><span class="no">SELECT</span> <span class="n">employee_id</span> <span class="o">,</span> <span class="n">first_name</span> <span class="o">,</span> <span class="n">job_id</span> <span class="o">,</span> <span class="n">department_id</span> <span class="no">FROM</span> <span class="n">employees</span><span class="o">)</span><span class="n">e</span><span class="o">,</span>
+
+<span class="o">(</span><span class="no">SELECT</span> <span class="n">department_id</span> <span class="o">,</span> <span class="n">department_name</span> <span class="no">FROM</span> <span class="n">departments</span> <span class="n">d</span> <span class="o">)</span><span class="n">d</span>
+
+<span class="no">WHERE</span> <span class="n">e</span><span class="o">.</span><span class="na">department_id</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="na">department_id</span><span class="o">;</span>
+</pre></table></code></div></div></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/increpas/'>Increpas</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/increpas/" class="post-tag no-text-decoration" >Increpas</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=자바기반의 응용SW개발자 양성과정 3일차 - 서브쿼리 / Join - 공부하고 기록하고&url=https://ksm0207.github.io/posts/increpasDay3/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=자바기반의 응용SW개발자 양성과정 3일차 - 서브쿼리 / Join - 공부하고 기록하고&u=https://ksm0207.github.io/posts/increpasDay3/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=자바기반의 응용SW개발자 양성과정 3일차 - 서브쿼리 / Join - 공부하고 기록하고&url=https://ksm0207.github.io/posts/increpasDay3/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/javascript01/">Script를 효율적으로 선언하는방법 - async & defer</a><li><a href="/posts/IOstream/">Java - I/O 파일 입출력 및 객체 직렬화</a><li><a href="/posts/Socket/">Socket 소켓 통신 및 네트워크 개념</a><li><a href="/posts/extends/">상속 파헤치기</a><li><a href="/posts/Super/">super & super()</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/java/">Java</a> <a class="post-tag" href="/tags/increpas/">Increpas</a> <a class="post-tag" href="/tags/baekjoon/">BaekJoon</a> <a class="post-tag" href="/tags/django/">Django</a> <a class="post-tag" href="/tags/oracle/">Oracle</a> <a class="post-tag" href="/tags/spring/">Spring</a> <a class="post-tag" href="/tags/sql/">SQL</a> <a class="post-tag" href="/tags/blogerror/">BlogError</a> <a class="post-tag" href="/tags/getting-started/">getting started</a> <a class="post-tag" href="/tags/javascript/">JavaScript</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/increpasDay20/"><div class="card-body"> <span class="timeago small" > Aug 3 <i class="unloaded">2021-08-03T06:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>자바기반의 응용SW개발자 양성과정 20일차 - 상속 + 메모리구조</h3><div class="text-muted small"><p> 상속 개념 배우기 준비한 클래스 Child - 자식 클래스 1 2 3 4 5 6 7 8 package am; public class Child extends Parent { public Child() { System.out.println("Child Class "); } } Parent - 부모 클래스 1 2 3...</p></div></div></a></div><div class="card"> <a href="/posts/increpasDay22/"><div class="card-body"> <span class="timeago small" > Aug 5 <i class="unloaded">2021-08-05T06:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>자바기반의 응용SW개발자 양성과정 22일차 - Static , 상수 , 추상화</h3><div class="text-muted small"><p> 오전수업 Static에 대해서 알아보자 기본적으로 클래스의 변수들은 인스턴스 변수 , 인스턴스 메소드 등이 있다 인스턴스 변수 : 클래스의 멤버변수와 같은 의미를 가지고 있다 1 2 String str = "대한민국"; int a 인스턴스 메소드 : 클래스의 멤버메소드와 같은 의미를 가지고 있다 1 2 3 4 public ...</p></div></div></a></div><div class="card"> <a href="/posts/increpasDay1/"><div class="card-body"> <span class="timeago small" > Jul 7 <i class="unloaded">2021-07-07T21:15:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>자바기반의 응용SW개발자 양성과정 1일차 - 인크레파스</h3><div class="text-muted small"><p> Day 1 오라클 XE 교육용 관계형 데이터베이스 (RDBMS) ※ RDBMS : Relational DataBase Management System 의 약자로 관계형 모델기반 , DBMS 유형을 뜻한다. 관계형 DB 종류는 오라클 , Mysql , MS-SQL , DB2 등이 있고 이런 관계형 DB는 1970년 6월 대량 공용 데이터베...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/increpasDay2/" class="btn btn-outline-primary" prompt="Older"><p>자바기반의 응용SW개발자 양성과정 2일차 - 인크레파스</p></a> <a href="/posts/OracleDML/" class="btn btn-outline-primary" prompt="Newer"><p>Oracle DML 연습하기</p></a></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2021 <a href="https://twitter.com/username">Kim sung min</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/tags/java/">Java</a> <a class="post-tag" href="/tags/increpas/">Increpas</a> <a class="post-tag" href="/tags/baekjoon/">BaekJoon</a> <a class="post-tag" href="/tags/django/">Django</a> <a class="post-tag" href="/tags/oracle/">Oracle</a> <a class="post-tag" href="/tags/spring/">Spring</a> <a class="post-tag" href="/tags/sql/">SQL</a> <a class="post-tag" href="/tags/blogerror/">BlogError</a> <a class="post-tag" href="/tags/getting-started/">getting started</a> <a class="post-tag" href="/tags/javascript/">JavaScript</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://ksm0207.github.io{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script>
